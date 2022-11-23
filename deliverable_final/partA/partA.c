@@ -19,6 +19,7 @@ int main(void) {
     }
 }  
 
+
   XMC_GPIO_ToggleOutput(XMC_GPIO_PORT1, 1); //turning off the LED after message is sent before retransmission
   history=0;
   DelayMs(DEBUG_TIME_FACTOR*5000);

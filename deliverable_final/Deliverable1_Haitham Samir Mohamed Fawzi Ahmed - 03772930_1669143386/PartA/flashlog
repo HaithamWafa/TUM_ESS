@@ -1,0 +1,77 @@
+### Flashing of Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartA started at 2022-11-22 20:06:50.322796 ### 
+
+SEGGER J-Link Commander V7.64c (Compiled Apr 20 2022 16:13:23)
+DLL version V7.64c, compiled Apr 20 2022 16:13:08
+
+
+J-Link Command File read successfully.
+Processing script file...
+J-Link>h
+J-Link connection not established yet but required for command.
+Connecting to J-Link via USB...O.K.
+Firmware: J-Link Lite-XMC4000 Rev.1 compiled Apr  2 2015 18:25:20
+Hardware version: V1.00
+S/N: 551008254
+VTref=3.300V
+Target connection not established yet but required for command.
+Device "XMC4500-1024" selected.
+
+
+Connecting to target via SWD
+Performing XMC4500 connection sequence.
+DPv0 detected
+CoreSight SoC-400 or earlier
+Scanning AP map to find all available APs
+AP[1]: Stopped AP scan as end of AP map has been reached
+AP[0]: AHB-AP (IDR: 0x24770011)
+Iterating through AP map to find AHB-AP to use
+AP[0]: Core found
+AP[0]: AHB-AP ROM base: 0xE00FF000
+CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+Found Cortex-M4 r0p1, Little endian.
+FPUnit: 6 code (BP) slots and 2 literal slots
+CoreSight components:
+ROMTbl[0] @ E00FF000
+[0][0]: E000E000 CID B105E00D PID 000BB00C SCS-M7
+[0][1]: E0001000 CID B105E00D PID 003BB002 DWT
+[0][2]: E0002000 CID B105E00D PID 002BB003 FPB
+[0][3]: E0000000 CID B105E00D PID 003BB001 ITM
+[0][4]: E0040000 CID B105900D PID 000BB9A1 TPIU
+[0][5]: E0041000 CID B105900D PID 000BB925 ETM
+Cortex-M4 identified.
+PC = 08000200, CycleCnt = 00000000
+R0 = 000009C4, R1 = 59800005, R2 = 000009C4, R3 = 000000DA
+R4 = 2000FFC4, R5 = 00000000, R6 = 00000000, R7 = 100007D0
+R8 = 00000000, R9 = 0C000004, R10= 00000000, R11= 00000000
+R12= 00000000
+SP(R13)= 10000800, MSP= 10000800, PSP= 00000000, R14(LR) = 080007E3
+XPSR = 01000000: APSR = nzcvq, EPSR = 01000000, IPSR = 000 (NoException)
+CFBP = 00000000, CONTROL = 00, FAULTMASK = 00, BASEPRI = 00, PRIMASK = 00
+
+FPS0 = 00000000, FPS1 = 00000000, FPS2 = 00000000, FPS3 = 00000000
+FPS4 = 00000000, FPS5 = 00000000, FPS6 = 00000000, FPS7 = 00000000
+FPS8 = 00000000, FPS9 = 00000000, FPS10= 00000000, FPS11= 00000000
+FPS12= 00000000, FPS13= 00000000, FPS14= 00000000, FPS15= 00000000
+FPS16= 00000000, FPS17= 00000000, FPS18= 00000000, FPS19= 00000000
+FPS20= 00000000, FPS21= 00000000, FPS22= 00000000, FPS23= 00000000
+FPS24= 00000000, FPS25= 00000000, FPS26= 00000000, FPS27= 00000000
+FPS28= 00000000, FPS29= 00000000, FPS30= 00000000, FPS31= 00000000
+FPSCR= 00000000
+J-Link>loadfile "Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartA/build/main.hex"
+Downloading file [Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartA/build/main.hex]...
+Comparing flash   [000%]000%]050%]100%] Done.
+Erasing flash     [000%]000%]100%] Done.
+Programming flash [000%]000%]000%]000%]000%]000%]000%]000%]005%]005%]005%]005%]005%]005%]010%]010%]010%]010%]010%]010%]015%]015%]015%]015%]015%]015%]020%]020%]020%]100%] Done.
+J-Link: Flash download: Bank 0 @ 0x0C000000: 1 range affected (65536 bytes)
+J-Link: Flash download: Total: 1.920s (Prepare: 0.128s, Compare: 0.068s, Erase: 1.362s, Program & Verify: 0.292s, Restore: 0.068s)
+J-Link: Flash download: Program & Verify speed: 219 KB/s
+O.K.
+J-Link>r
+Reset delay: 0 ms
+Reset type NORMAL: Resets core & peripherals via SYSRESETREQ & VECTRESET bit.
+Performing XMC4500 reset
+J-Link>g
+J-Link>q
+
+Script processing completed.
+

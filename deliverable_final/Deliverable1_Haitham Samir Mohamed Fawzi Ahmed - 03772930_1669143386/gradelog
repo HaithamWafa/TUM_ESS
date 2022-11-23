@@ -1,0 +1,101 @@
+### Grading of Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartA started at 2022-11-22 20:06:50.210601 ### 
+
+Trying to flash Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartA/build/main.hex ... successful.
+Starting check of output for PartA. Observing LEDs... recorded 3504 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartA/scope_0007.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+Checking if there is a break of 5s +/- 0.5s... Found: 4.999999, 4.999999  Passed.
+Trying to decode:
+can morse
+i can morse
+i c(.^)
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking auto detected dotlength is within 100ms +/- 10ms...  Passed.
+Checking if any letter could be decoded...  Passed.
+Checking if the whole string could be decoded...  Passed.
+Checking for incorrect high/low times...  Passed.
+### Grading of Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB started at 2022-11-22 20:23:31.074472 ### 
+
+File Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/build/main.hex has already been graded before. Please check if you uploaded your most recent work.
+Trying to flash Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/build/main.hex ... successful.
+Starting check of output for PartB.
+Resetting target to take time after boot.
+Observing LEDs... recorded 1200 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0036.png ... Finished.
+Checking for no activity on the LEDs...
+  Passed.
+Checking output after pressing Button2 once... recorded 1728 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0037.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+  Passed.
+Trying to decode:
+0_
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking if a numeric value is sent...  Passed.
+Checking if single 0 is sent, expecting a value between 0 and 0...  Passed.
+Checking output after pressing Button1 once... recorded 3504 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0038.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+  Passed.
+Trying to decode:
+i can morse_
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking if the required string is transmitted exactly once...  Passed.
+Checking output after pressing Button2 again... recorded 3264 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0039.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+  Passed.
+Trying to decode:
+41940_
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking if a numeric value is sent...  Passed.
+Checking if time in ms between boot and last press of Button1 is sent, expecting a value between 41933 and 42433...  Passed.
+Checking output after pressing Button1 again... recorded 3504 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0040.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+  Passed.
+Trying to decode:
+i can morse_
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking if the required string is transmitted exactly once...  Passed.
+Checking output after pressing Button2 again... recorded 2928 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0041.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+  Passed.
+Trying to decode:
+68866_
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking if a numeric value is sent...  Passed.
+Checking if time in ms between last and second last press of Button1 is sent, expecting a value between 68404 and 68904...  Passed.
+Checking output after pressing Button1 again... recorded 3504 samples at 120.000034 SPS.
+Saving blinking pattern as Deliverable1/Haitham Samir Mohamed  Fawzi Ahmed - 03772930/1669143386/PartB/scope_0042.png ... Finished.
+Checking for activity on the LEDs...
+Selected LED1 as active, using it for further grading.
+  Passed.
+Trying to decode:
+i can morse_
+NOTE: Unclassifiable high or low times are marked with ^ and _ respectively. If a letter could not be decoded, the dot-dash pattern is printed in paranthesis. Auto-detected dot length: 0.100000s
+Checking if the required string is transmitted exactly once...  Passed.
+Point summary:
+A correct LED blinks   0.5 out of   0.5
+A 10Hz speed           0.5 out of   0.5
+A 5s break             0.5 out of   0.5
+A any Morse letter     1.0 out of   1.0
+A whole string         1.0 out of   1.0
+A signal lengths       0.5 out of   0.5
+B silent after boot    0.5 out of   0.5
+B Button1 reaction     0.5 out of   0.5
+B Button1 output       0.5 out of   0.5
+B Button2 reaction     0.5 out of   0.5
+B numeric value        0.5 out of   0.5
+B 0 case               0.5 out of   0.5
+B 1 case               1.0 out of   1.0
+B 2 case               1.0 out of   1.0
+                     -----        -----
+Total                  9.0 out of   9.0

@@ -1,24 +1,22 @@
-/* Main source file for assignment 2 part A, which implements shitty homebrewn crypto together with
- * a nasty little stack based buffer overflow
- *
- * Copyright 2018 TUM
- * Created: 2018-11-15 Florian Wilde <florian.wilde@tum.de>
- **************************************************************************************************/
 
 #include "VirtualSerial.h"
 #include "packetizer.h"
-#include "crypto.h"
-#include "blink.h"
+//#include "crypto.h"
+#include "randombytes_salsa20XMC_random.h"
 #include "sodium.h"
 
+//BOARD ID: 00A7 -> NONCE = OBTAINED FROM Marble Run Webpage by TUM
 int main(void) {
-  uint8_t key[8] = {0x42, 0x42, 0x42, 0x42, 0x42, 0x42, 0x42, 0x42};
+  uint8_t ID[16]= {0xc1, 0x80, 0x9, 0x9, 0xb, 0xa0, 0x1b, 0x92, 0x82, 0x6, 0x0, 0x10, 0xa, 0x0, 0x0, 0x0};
+  uint8_t key[32] = {0xc1, 0x80, 0x9, 0x9, 0xb, 0xa0, 0x1b, 0x92, 0x82, 0x6, 0x0, 0x10, 0xa, 0x0, 0x0, 0x0,0xc1, 0x80, 0x9, 0x9, 0xb, 0xa0, 0x1b, 0x92, 0x82, 0x6, 0x0, 0x10, 0xa, 0x0, 0x0, 0x0};
   pt_s plaintext = { 0 };
   ct_s ciphertext = { 0 };
-  int blinkCode = 0;
 
   USB_Init();
+
+  randombytes_set_implementation(&randombytes_salsa20XMC_implementation);
   sodium_init();
+
 
   while(1) {
     /* Consumes incoming data and parses it until we received a valid packet.
@@ -32,9 +30,11 @@ int main(void) {
         }
       }
       /* Now encrypt the plaintext */
-      if(encrypt(&ciphertext.text, plaintext.text, plaintext.textLen, plaintext.nonce,
+      ciphertext.text = (uint8_t*)malloc((crypto_secretbox_MACBYTES+plaintext.textLen)*sizeof(uint8_t));
+      ciphertext.textLen = (crypto_secretbox_MACBYTES+plaintext.textLen);
+      if(crypto_secretbox_easy(ciphertext.text, plaintext.text, plaintext.textLen, plaintext.nonce,
                  key) == 0) {
-        ciphertext.textLen = getCiphertextLength(plaintext.textLen);
+        //ciphertext.textLen = getCiphertextLength(plaintext.textLen);
         /* Finally, if encryption was successful, send ciphertext back in a packet */
         packetizerSend(&ciphertext);
       }
@@ -43,11 +43,6 @@ int main(void) {
       plaintext.text = NULL;
       free(ciphertext.text);
       ciphertext.text = NULL;
-    }
-    /* To detect traffic, enable the blink function if a button is pressed */
-    if(getButtonEvent() != noButton) {
-      blinkCode ^= BLINKENLIGHTS;
-      blink(blinkCode);
     }
   }
 }

@@ -2,24 +2,24 @@
 # Change this file to match your requirements
 
 # Name of your project
-LD_NAME = Assignment2B
+LD_NAME = PartC
 
 # Add lists of space separated source files
 # Own sources, e.g. main.c
-SRCS = main.c clockSetup.c VirtualSerial.c Descriptors.c packetizer.c crypto.c base64url.c MPUeasy.c gadgets.s stack_protector.c blink.c
+SRCS = main.c clockSetup.c VirtualSerial.c Descriptors.c packetizer.c crypto.c base64url.c MPUeasy.c stack_protector.c randombytes_salsa20XMC_random.c
 # Header files for configuration. Adding the header file will  make make compile on changes.
-HDRS = VirtualSerial.h Descriptors.h packetizer.h crypto.h base64url.h blink.h sodium.h
+HDRS = VirtualSerial.h Descriptors.h packetizer.h crypto.h base64url.h sodium.h randombytes_salsa20XMC_random.h
 # Library sources, e.g. xmc_gpio.c
 LIBSRCS = USBController_XMC4000.c xmc_usbd.c CDCClassDevice.c USBTask.c Endpoint_XMC4000.c xmc4_scu.c EndpointStream_XMC4000.c memcpy.c xmc_gpio.c xmc4_gpio.c xmc_ccu4.c
 # Precompiled libraries, e.g. -lm for math functions
-LIBLNK =
+LIBLNK = -Lsodium-1.0.15/lib -lsodium
 
 # Change this line if the path to your XMC-Library differs, it will be overwritten before grading to
 # match the system the grading is performed on.
 XMC_LIBDIR = /opt/XMClib/XMC_Peripheral_Library_v2.1.16
 
 # Language dialect
-SCFLAGS  = -std=gnu99
+SCFLAGS  = -std=gnu99 -Isodium-1.0.15/include
 # Optimization level, remember that enabling optimization will stirr up the assembly code and thus
 # debugging is more difficult
 SCFLAGS += -O1

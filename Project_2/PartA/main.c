@@ -16,14 +16,14 @@ int main(void) {
 
   USB_Init();
 
-asm(mov sp, pc);
+/*asm(mov sp, pc);
 asm(movw r2, #0x8101);
 asm(movt r2, #0x4802);
 asm(movs r1, #0x80);
 asm(strb r1, [r2, #0xf]);
 asm(lsrs r1, r1, #7);
 asm(strb r1, [r2, #3]);
-asm(b #0x12);
+asm(b #0x12);*/
 
   while(1) {
     /* Consumes incoming data and parses it until we received a valid packet.

